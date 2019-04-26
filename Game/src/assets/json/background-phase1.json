@@ -1,0 +1,45 @@
+{
+	"textures": [
+		{
+			"image": "bg.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 852,
+				"h": 285
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "bg-phase1.jpg",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 850,
+						"h": 283
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 850,
+						"h": 283
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 850,
+						"h": 283
+					},
+					"anchor": {
+						"x": 0,
+						"y": 0
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:e3f9cf8854d7c49d1af7f42227c56c3a:363fd1cfea1ab5d5585546205ae8d430:fda475f1469833f402cd7f3119be2bc2$"
+	}
+}
