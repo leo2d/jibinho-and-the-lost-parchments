@@ -33,6 +33,9 @@ export class Java extends Enemy<Java> {
             
             heroBody.x = config.heroPosition.x;
             heroBody.y = config.heroPosition.y;
+
+            this.hero.decreaseLife();
+
         });
     }
 

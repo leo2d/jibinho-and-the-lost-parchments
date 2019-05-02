@@ -11,6 +11,7 @@ import { JumpMove } from '../core/moves/jump-move';
 import { Action } from '../core/actions/action';
 import { Java } from '../core/enemies/java';
 import { SnowMage } from '../core/enemies/snow-mage';
+import { Bug } from 'src/core/enemies/bug';
 
 
 export default class GameScene extends Phaser.Scene {
@@ -33,7 +34,7 @@ export default class GameScene extends Phaser.Scene {
     }
 
     public create() {        
-        this.add.sprite(0, 0, 'background-p1', 'background-phase1.png');
+        this.add.tileSprite(600, 100, 1920, 1080,'bg' );
         
         this.physics.world.bounds.width = config.width;
         this.physics.world.bounds.height = config.height;
@@ -61,7 +62,7 @@ export default class GameScene extends Phaser.Scene {
         const java = new Java(this, this.hero).create(754, 420).withRouteLoop(900, 500);
         const mage = new SnowMage(this, this.hero).create(229, 55);
 
-        this.assignMoves();
+       this.assignMoves();
 
         this.input.on("pointerdown", function(pointer){
             console.log(pointer.x, pointer.y);
