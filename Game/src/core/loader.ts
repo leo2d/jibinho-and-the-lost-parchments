@@ -12,6 +12,7 @@ export class Loader {
         loadPlugin.image("snowmage", assets.snowmage);
         loadPlugin.image("bug", assets.bug);
         loadPlugin.image("bg", assets.bg);
+        loadPlugin.image("gameOver", assets.gameOver);
 
         loadPlugin.atlas('player-walking', 'src/assets/images/walk.png', 'src/assets/json/walk.json');
 

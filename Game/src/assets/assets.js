@@ -10,6 +10,7 @@ import javalogo from "./images/enemy_java.png";
 import snowmage from "./images/snow_mage.png";
 import bug from "./images/bug.png";
 import bg from "./images/bg.jpg";
+import gameOver from "./images/game-over.png";
 
 export default {
     imgBarrel: imgBarrel,
@@ -22,6 +23,7 @@ export default {
     javalogo: javalogo,
     snowmage: snowmage,
     bug: bug,
-    bg: bg
+    bg: bg,
+    gameOver: gameOver
 };
 

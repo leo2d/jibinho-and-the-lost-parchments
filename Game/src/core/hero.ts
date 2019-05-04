@@ -33,7 +33,8 @@ export class Hero {
         this.life = this.life - 1;
 
         if (this.life < 1) {
-            console.log("MORREU");
+            this._gameScene.game.scene.start('GameOver');
+            this._gameScene.game.scene.remove('Game');
         }
     }
 }
