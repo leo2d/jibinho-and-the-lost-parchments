@@ -16,7 +16,8 @@ export abstract class Enemy<TEnemy extends Enemy<TEnemy>> {
         this.gameScene.physics.add.existing(this.sprite, false);
         this.body = this.sprite.body as Phaser.Physics.Arcade.Body;
         this.body.setCollideWorldBounds(true);
-        
+        //this.body.onWorldBounds = true;
+
         return this as unknown as TEnemy;
     }
 

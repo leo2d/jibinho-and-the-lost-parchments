@@ -2,6 +2,7 @@ import { Enemy } from "../engine/enemy";
 import { Hero } from "../hero";
 import config from "../../config";
 import { GoogleFireAction } from "../actions/action";
+import { Block } from "../block";
 
 export class Bug extends Enemy<Bug> {
 
@@ -14,6 +15,7 @@ export class Bug extends Enemy<Bug> {
     public create(x: number, y: number): Bug {
         super.create(x, y, 'bug');
         this.addColliderWithHero();
+
         return this;
     }
 
