@@ -8,12 +8,14 @@ export class Hero {
     public speed: number;
     public jumpSpeed: number;
     public animations: Phaser.GameObjects.Components.Animation;
-    public life = 3;
+    public life: number;
 
     public lookingAt: 'back' | 'front';
 
     constructor(public _gameScene: Phaser.Scene) {
         this.lookingAt = 'front';
+
+        this.life = 3;
 
         const gamePhysics = this._gameScene.physics;
 
@@ -33,8 +35,15 @@ export class Hero {
         this.life = this.life - 1;
 
         if (this.life < 1) {
-            this._gameScene.game.scene.start('GameOver');
-            this._gameScene.game.scene.remove('Game');
+
+            this.life = 3;
+
+            //debugger;
+            // this._gameScene.game.scene.start('GameOver');
+            // this._gameScene.game.scene.sleep('Game');
+
+            this._gameScene.game.scene.switch('Game', 'GameOver');
+
         }
     }
 }

@@ -13,6 +13,7 @@ export class Loader {
         loadPlugin.image("bug", assets.bug);
         loadPlugin.image("bg", assets.bg);
         loadPlugin.image("gameOver", assets.gameOver);
+        loadPlugin.image("main", assets.main);
 
         loadPlugin.atlas('player-walking', 'src/assets/images/walk.png', 'src/assets/json/walk.json');
 

@@ -11,6 +11,7 @@ import snowmage from "./images/snow_mage.png";
 import bug from "./images/bug.png";
 import bg from "./images/bg.jpg";
 import gameOver from "./images/game-over.png";
+import main from "./images/main.png";
 
 export default {
     imgBarrel: imgBarrel,
@@ -24,6 +25,7 @@ export default {
     snowmage: snowmage,
     bug: bug,
     bg: bg,
-    gameOver: gameOver
+    gameOver: gameOver,
+    main: main
 };
 

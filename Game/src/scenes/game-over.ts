@@ -1,14 +1,13 @@
-import { Animation } from '../core/animation';
 import { Loader } from '../core/loader';
-import { AUTO, GameObjects, Input } from "phaser";
-import config from "../config";
-import { Action } from '../core/actions/action';
+import { Input } from 'phaser';
 
 
 export default class GameOverScene extends Phaser.Scene {
     public constructor(key) {
         super(key);
     }
+
+    public cursorKeys: Input.Keyboard.CursorKeys;
 
     public init() {
 
@@ -19,5 +18,14 @@ export default class GameOverScene extends Phaser.Scene {
     }
     public create() {
         this.add.tileSprite(625, 320, 1250, 640, 'gameOver');
+
+        this.cursorKeys = this.input.keyboard.createCursorKeys();  
+
+        this.cursorKeys.space.on('down', () => {
+            // this.game.scene.wake('Main');
+            // this.game.scene.sleep('GameOver');
+
+            this.game.scene.switch('GameOver', 'Main');
+        });
     }
 }
