@@ -63,3 +63,5 @@ dist/
 #tsc output
 #//src/**/*.js
 #src/**/*.js.map
+
+package-lock.json
