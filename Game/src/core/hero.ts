@@ -1,5 +1,7 @@
 import { AUTO } from "phaser";
 import config from "../config";
+import { get } from "https";
+import GameScene from "src/scenes/game";
 
 export class Hero {
 
@@ -8,14 +10,14 @@ export class Hero {
     public speed: number;
     public jumpSpeed: number;
     public animations: Phaser.GameObjects.Components.Animation;
-    public life: number;
+    public lifes: number;
 
     public lookingAt: 'back' | 'front';
 
     constructor(public _gameScene: Phaser.Scene) {
         this.lookingAt = 'front';
 
-        this.life = 3;
+        this.lifes = 3;
 
         const gamePhysics = this._gameScene.physics;
 
@@ -32,18 +34,17 @@ export class Hero {
     }
 
     public decreaseLife(): void {
-        this.life = this.life - 1;
+        this.lifes = this.lifes - 1;
 
-        if (this.life < 1) {
-
-            this.life = 3;
-
-            //debugger;
-            // this._gameScene.game.scene.start('GameOver');
-            // this._gameScene.game.scene.sleep('Game');
-
+        if (this.lifes < 1) {
             this._gameScene.game.scene.switch('Game', 'GameOver');
+        }
 
+        const game = this._gameScene.game.scene.getScene('Game') as GameScene;
+
+        if (game.hearts.length > 0 && this.lifes > 0) {
+            let heart = game.hearts[this.lifes];
+            heart.destroy();
         }
     }
 }

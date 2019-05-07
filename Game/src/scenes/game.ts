@@ -18,6 +18,7 @@ export default class GameScene extends Phaser.Scene {
 
     public hero: Hero;
     public animation: Animation;
+    public hearts: Phaser.GameObjects.TileSprite[];
 
     public cursorKeys: Input.Keyboard.CursorKeys;
 
@@ -35,6 +36,10 @@ export default class GameScene extends Phaser.Scene {
 
     public create() {
         this.add.tileSprite(600, 100, 1920, 1080, 'bg');
+
+        this.hearts = [this.add.tileSprite(25, 50, 32, 32, 'heart'),
+        this.add.tileSprite(60, 50, 32, 32, 'heart'),
+        this.add.tileSprite(95, 50, 32, 32, 'heart')];
 
         this.physics.world.bounds.width = config.width;
         this.physics.world.bounds.height = config.height;

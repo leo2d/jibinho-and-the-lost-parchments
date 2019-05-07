@@ -12,6 +12,7 @@ import bug from "./images/bug.png";
 import bg from "./images/bg.jpg";
 import gameOver from "./images/game-over.png";
 import main from "./images/main.png";
+import heart from "./images/heart32.png";
 
 export default {
     imgBarrel: imgBarrel,
@@ -26,6 +27,8 @@ export default {
     bug: bug,
     bg: bg,
     gameOver: gameOver,
-    main: main
+    main: main,
+    heart: heart,
+
 };
 

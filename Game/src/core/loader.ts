@@ -14,6 +14,7 @@ export class Loader {
         loadPlugin.image("bg", assets.bg);
         loadPlugin.image("gameOver", assets.gameOver);
         loadPlugin.image("main", assets.main);
+        loadPlugin.image("heart", assets.heart);
 
         loadPlugin.atlas('player-walking', 'src/assets/images/walk.png', 'src/assets/json/walk.json');
 
