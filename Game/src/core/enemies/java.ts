@@ -21,8 +21,8 @@ export class Java extends Enemy<Java> {
         return this;
     }
 
-    public withRouteLoop(moveTo: number, loopDelay: number): Java {
-        this.setRouteLoop(moveTo, loopDelay, 250);
+    public withRouteLoop(moveTo: number, loopDelay: number, speed?: number): Java {
+        this.setRouteLoop(moveTo, loopDelay, speed ? speed : 250);
         return this;
     }
 

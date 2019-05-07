@@ -24,11 +24,7 @@ export default class MainScreenScene extends Phaser.Scene {
         this.cursorKeys = this.input.keyboard.createCursorKeys();
 
         this.cursorKeys.space.on('down', () => {
-            // this.game.scene.start('Game');
-            // this.game.scene.sleep('Main');
-
-            this.game.scene.switch('Main', 'Game');
-            let scene = this.game.scene.getScene('Game');
+            this.scene.start("Game");
         });
 
     }

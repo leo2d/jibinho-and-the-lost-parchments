@@ -19,13 +19,10 @@ export default class GameOverScene extends Phaser.Scene {
     public create() {
         this.add.tileSprite(625, 320, 1250, 640, 'gameOver');
 
-        this.cursorKeys = this.input.keyboard.createCursorKeys();  
+        this.cursorKeys = this.input.keyboard.createCursorKeys();
 
         this.cursorKeys.space.on('down', () => {
-            // this.game.scene.wake('Main');
-            // this.game.scene.sleep('GameOver');
-
-            this.game.scene.switch('GameOver', 'Main');
+            window.location.reload();
         });
     }
 }

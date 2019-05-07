@@ -15,27 +15,27 @@ import { Bug } from 'src/core/enemies/bug';
 
 
 export default class GameScene extends Phaser.Scene {
-    
-    public hero: Hero; 
-    public animation: Animation;  
+
+    public hero: Hero;
+    public animation: Animation;
 
     public cursorKeys: Input.Keyboard.CursorKeys;
-    
+
     public constructor(key) {
         super(key);
     }
 
     public init() {
-        
+
     }
 
     public preload() {
         new Loader(this.load);
     }
 
-    public create() {        
-        this.add.tileSprite(600, 100, 1920, 1080,'bg' );
-        
+    public create() {
+        this.add.tileSprite(600, 100, 1920, 1080, 'bg');
+
         this.physics.world.bounds.width = config.width;
         this.physics.world.bounds.height = config.height;
 
@@ -52,27 +52,35 @@ export default class GameScene extends Phaser.Scene {
 
         this.hero = new Hero(this);
         this.physics.add.collider(this.hero.sprite, blocks);
-        
+
+        this.cameras.main.setBounds(0, 0, config.width, config.height);
+        this.cameras.main.startFollow(this.hero.sprite);
+
         // this.animation = new Animation(this);
         this.anims.create({ key: 'player-walking', frames: this.anims.generateFrameNames('player-walking'), repeat: -1 });
 
-        this.cursorKeys = this.input.keyboard.createCursorKeys();  
+        this.cursorKeys = this.input.keyboard.createCursorKeys();
 
         new GoogleFireAction(this.hero, this, this.cursorKeys).actionAssign();
-        const java = new Java(this, this.hero).create(754, 420).withRouteLoop(900, 500);
-        const mage = new SnowMage(this, this.hero).create(229, 55);
+        const javas = [new Java(this, this.hero).create(754, 420).withRouteLoop(900, 500),
+        // new Java(this, this.hero).create(1102, 420).withRouteLoop(1300, 350),
+        // new Java(this, this.hero).create(390, 390).withRouteLoop(530, 250),
+        new Java(this, this.hero).create(740, 295).withRouteLoop(790, 480, 180),
+        ];
 
-       this.assignMoves();
+        // const mage = new SnowMage(this, this.hero).create(229, 55);
 
-        this.input.on("pointerdown", function(pointer){
+        this.assignMoves();
+
+        this.input.on("pointerdown", function (pointer) {
             console.log(pointer.x, pointer.y);
         });
     }
 
-    public update() {        
-      
+    public update() {
+
     }
-    
+
     private assignMoves(): void {
         let leftmove = new LeftMove(this.hero, this.cursorKeys).withSpeed(this.hero.speed);
         leftmove.moveAssign();
