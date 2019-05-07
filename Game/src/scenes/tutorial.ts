@@ -2,7 +2,7 @@ import { Loader } from '../core/loader';
 import { AUTO, Input } from 'phaser';
 
 
-export default class MainScreenScene extends Phaser.Scene {
+export default class TutorialScene extends Phaser.Scene {
 
     public cursorKeys: Input.Keyboard.CursorKeys;
 
@@ -19,12 +19,12 @@ export default class MainScreenScene extends Phaser.Scene {
     }
 
     public create() {
-        this.add.tileSprite(625, 320, 1250, 640, 'main');
+        this.add.tileSprite(625, 320, 1250, 640, 'tutorialBg');
 
         this.cursorKeys = this.input.keyboard.createCursorKeys();
 
         this.cursorKeys.space.on('down', () => {
-            this.scene.start("Tutorial");
+            this.scene.start("Game");
         });
 
     }

@@ -13,6 +13,7 @@ import bg from "./images/bg.jpg";
 import gameOver from "./images/game-over.png";
 import main from "./images/main.png";
 import heart from "./images/heart32.png";
+import tutorialBg from "./images/tutorial-controls.png";
 
 export default {
     imgBarrel: imgBarrel,
@@ -29,6 +30,7 @@ export default {
     gameOver: gameOver,
     main: main,
     heart: heart,
+    tutorialBg: tutorialBg,
 
 };
 
