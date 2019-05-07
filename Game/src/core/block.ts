@@ -25,45 +25,54 @@ export class Block {
     }
 
     public addPlatform(): void {
-        // const platform = this._gameScene.add.tileSprite(180, 500, 4 * 36, 1 * 30, "block");
-        // this._gamePhysics.add.existing(platform, true);
 
-        // const platformBody = platform.body as Phaser.Physics.Arcade.Body
-        // platformBody.setMass(100);
+        const iceBlock = 'block';
+        const icePlatformheight = 30;
 
-        // Block.blocksGroup.add(platform);
+        this.addPlatforms(240, 174, 5 * 32, icePlatformheight, iceBlock);
+        // this.addPlatforms(734, 395, 8 * 32, icePlatformheight, iceBlock);
+        this.addPlatforms(634, 418, 8 * 32, icePlatformheight, iceBlock);
 
-        // const platformA = this._gameScene.add.tileSprite(50, 326, 4 * 36, 1 * 30, "block");
-        // this._gamePhysics.add.existing(platformA, true);
+        // this.addPlatforms(180, 500, 4 * 32, icePlatformheight, iceBlock);
 
-        // const platformABody = platformA.body as Phaser.Physics.Arcade.Body
-        // platformABody.setMass(100);
+        // this.addPlatforms(380, 400, 6 * 32, icePlatformheight, iceBlock);
+        this.addPlatforms(780, 330, 4 * 32, icePlatformheight, iceBlock);
+        this.addPlatforms(538, 279, 4 * 32, icePlatformheight, iceBlock);
+        this.addPlatforms(442, 190, 4 * 32, icePlatformheight, iceBlock);
+        this.addPlatforms(900, 250, 4 * 32, icePlatformheight, iceBlock);
+        this.addPlatforms(382, 508, 6 * 32, icePlatformheight, iceBlock);
 
-        // Block.blocksGroup.add(platformA);
+        this.addPlatforms(1060, 160, 6 * 32, icePlatformheight, iceBlock);
 
-        const platformB = this._gameScene.add.tileSprite(240, 174, 5 * 32, 1 * 30, "block");
-        this._gamePhysics.add.existing(platformB, true);
-
-        const platformBBody = platformB.body as Phaser.Physics.Arcade.Body
-        platformBBody.setMass(100);
-
-        Block.blocksGroup.add(platformB);
-   
-        const platformX = this._gameScene.add.tileSprite(734, 395, 8 * 32, 1 * 30, "block");
-        this._gamePhysics.add.existing(platformX, true);
-
-        const platformXBody = platformX.body as Phaser.Physics.Arcade.Body
-        platformXBody.setMass(100);
-
-        Block.blocksGroup.add(platformX);
-
-
-        // const platformF = this._gameScene.add.tileSprite(370, 390, 8 * 36, 1 * 30, "block");
-        // this._gamePhysics.add.existing(platformF, true);
-
-        // const platformFBody = platformF.body as Phaser.Physics.Arcade.Body
-        // platformFBody.setMass(100);
-
-        // Block.blocksGroup.add(platformF);
     }
+    private addPlatforms(x: number, y: number, width: number,
+        height: number, texture: string, movable = false): Phaser.GameObjects.TileSprite {
+
+        const platform = this._gameScene.add.tileSprite(x, y, width, height, texture);
+        this._gamePhysics.add.existing(platform, true);
+
+        const platformBody = platform.body as Phaser.Physics.Arcade.Body
+        platformBody.setMass(100);
+
+        Block.blocksGroup.add(platform);
+
+        // if(movable)
+        // this.setRouteLoop(880, 500, 250, platform);
+        
+        return platform;
+    }
+
+    // public setRouteLoop(x: number, delayMetric: number, 
+    //     speed: number, sprite:Phaser.GameObjects.TileSprite) {
+    //     this._gameScene.physics.moveTo(sprite, x, 0, speed);
+    //     this._gameScene.time.addEvent({
+    //         delay: delayMetric,
+    //         callback: () => {
+    //             speed *= -1;
+    //             // let body = 
+    //             () => (sprite.body as Phaser.Physics.Arcade.Body) .setVelocityX(speed);                
+    //         },
+    //         loop: true
+    //     });
+    // }
 }

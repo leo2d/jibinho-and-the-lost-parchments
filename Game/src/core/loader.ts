@@ -16,6 +16,7 @@ export class Loader {
         loadPlugin.image("main", assets.main);
         loadPlugin.image("heart", assets.heart);
         loadPlugin.image("tutorialBg", assets.tutorialBg);
+        loadPlugin.image("portalClosed", assets.portalClosed);
 
         loadPlugin.atlas('player-walking', 'src/assets/images/walk.png', 'src/assets/json/walk.json');
 

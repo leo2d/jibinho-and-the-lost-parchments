@@ -41,6 +41,8 @@ export default class GameScene extends Phaser.Scene {
         this.add.tileSprite(60, 50, 32, 32, 'heart'),
         this.add.tileSprite(95, 50, 32, 32, 'heart')];
 
+        this.add.tileSprite(1130, 130,36, 32, 'portalClosed');
+
         this.physics.world.bounds.width = config.width;
         this.physics.world.bounds.height = config.height;
 
@@ -68,12 +70,13 @@ export default class GameScene extends Phaser.Scene {
 
         new GoogleFireAction(this.hero, this, this.cursorKeys).actionAssign();
         const javas = [new Java(this, this.hero).create(754, 420).withRouteLoop(900, 500),
-        // new Java(this, this.hero).create(1102, 420).withRouteLoop(1300, 350),
-        // new Java(this, this.hero).create(390, 390).withRouteLoop(530, 250),
-        new Java(this, this.hero).create(740, 295).withRouteLoop(790, 480, 180),
+        new Java(this, this.hero).create(1102, 420).withRouteLoop(1300, 350),
+        new Java(this, this.hero).create(390, 390).withRouteLoop(530, 250),
+        new Java(this, this.hero).create(740, 295).withRouteLoop(890, 1080, 80),
+        new Java(this, this.hero).create(1066, 120).withRouteLoop(1470, 1080, 80),
         ];
 
-        // const mage = new SnowMage(this, this.hero).create(229, 55);
+        const mage = new SnowMage(this, this.hero).create(229, 55);
 
         this.assignMoves();
 
