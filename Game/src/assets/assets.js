@@ -15,6 +15,11 @@ import main from "./images/main.png";
 import heart from "./images/heart32.png";
 import tutorialBg from "./images/tutorial-controls.png";
 import portalClosed from "./images/portal-closed.png";
+import enemyHealthBar from "./images/enemyHealthBar.png";
+import enemyHealthBarDanger from "./images/enemyHealthBar-danger.png";
+import enemyHealthBarCaution from "./images/enemyHealthBar-caution.png";
+import enemyHealthBarWaring from "./images/enemyHealthBar-waring.png";
+import enemyHealthBarFine from "./images/enemyHealthBar-fine.png";
 
 export default {
     imgBarrel: imgBarrel,
@@ -33,6 +38,10 @@ export default {
     heart: heart,
     tutorialBg: tutorialBg,
     portalClosed: portalClosed,
-
+    enemyHealthBar: enemyHealthBar,
+    enemyHealthBarDanger: enemyHealthBarDanger,
+    enemyHealthBarCaution: enemyHealthBarCaution,
+    enemyHealthBarWaring: enemyHealthBarWaring,
+    enemyHealthBarFine: enemyHealthBarFine,
 };
 

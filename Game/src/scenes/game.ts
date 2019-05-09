@@ -41,7 +41,7 @@ export default class GameScene extends Phaser.Scene {
         this.add.tileSprite(60, 50, 32, 32, 'heart'),
         this.add.tileSprite(95, 50, 32, 32, 'heart')];
 
-        this.add.tileSprite(1130, 130,36, 32, 'portalClosed');
+        this.add.tileSprite(1130, 130, 36, 32, 'portalClosed');
 
         this.physics.world.bounds.width = config.width;
         this.physics.world.bounds.height = config.height;
@@ -65,6 +65,8 @@ export default class GameScene extends Phaser.Scene {
 
         // this.animation = new Animation(this);
         this.anims.create({ key: 'player-walking', frames: this.anims.generateFrameNames('player-walking'), repeat: -1 });
+
+        //this.anims.create({ key: 'enemy-damage', frames: this.anims.generateFrameNames('enemy-damage'), repeat: 3 });
 
         this.cursorKeys = this.input.keyboard.createCursorKeys();
 

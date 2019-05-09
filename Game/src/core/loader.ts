@@ -17,6 +17,11 @@ export class Loader {
         loadPlugin.image("heart", assets.heart);
         loadPlugin.image("tutorialBg", assets.tutorialBg);
         loadPlugin.image("portalClosed", assets.portalClosed);
+        loadPlugin.image("enemyHealthBar", assets.enemyHealthBar);
+        loadPlugin.image("enemyHealthBarDanger", assets.enemyHealthBarDanger);
+        loadPlugin.image("enemyHealthBarCaution", assets.enemyHealthBarCaution);
+        loadPlugin.image("enemyHealthBarWaring", assets.enemyHealthBarWaring);
+        loadPlugin.image("enemyHealthBarFine", assets.enemyHealthBarFine);
 
         loadPlugin.atlas('player-walking', 'src/assets/images/walk.png', 'src/assets/json/walk.json');
 
