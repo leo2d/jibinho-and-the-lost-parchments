@@ -19,6 +19,7 @@ export default class GameScene extends Phaser.Scene {
     public hero: Hero;
     public animation: Animation;
     public hearts: Phaser.GameObjects.TileSprite[];
+    public mageHealthBar: Phaser.GameObjects.TileSprite;
 
     public cursorKeys: Input.Keyboard.CursorKeys;
 
@@ -42,6 +43,7 @@ export default class GameScene extends Phaser.Scene {
         this.add.tileSprite(95, 50, 32, 32, 'heart')];
 
         this.add.tileSprite(1130, 130, 36, 32, 'portalClosed');
+        this.mageHealthBar = this.add.tileSprite(229, 75, 57, 20, 'enemyHealthBarFine');
 
         this.physics.world.bounds.width = config.width;
         this.physics.world.bounds.height = config.height;

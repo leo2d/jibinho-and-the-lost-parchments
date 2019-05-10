@@ -5,6 +5,7 @@ import { Bug } from "./bug";
 import config from "../../config";
 import { GoogleFireAction } from '../actions/action';
 import GameScene from 'src/scenes/game';
+import { GameObjects } from 'phaser';
 
 export class SnowMage extends Enemy<SnowMage> {
 
@@ -16,17 +17,19 @@ export class SnowMage extends Enemy<SnowMage> {
         gameScene: Phaser.Scene,
         private hero: Hero) {
         super(gameScene);
+
+        this.health = 4;
+
     }
 
     public create(x: number, y: number): SnowMage {
         super.create(x, y, 'snowmage')
             .withBlockColisor().withMass(1);
 
-       // this.registerLoopSkill();
+        // this.registerLoopSkill();
         this.addColliderWithHero();
         this.addColliderWithGoogleFire();
 
-        this.health = 4;
 
         return this;
     }
@@ -66,32 +69,52 @@ export class SnowMage extends Enemy<SnowMage> {
     }
 
     private addColliderWithGoogleFire(): void {
+        const body = this.body;
         const googleFireGroup = GoogleFireAction.googleFireGroup;
-        this.addOverlap(googleFireGroup, (that, g) => {
+        this.addOverlap(this.sprite, (that, g) => {
             const thatBody = that.body as Phaser.Physics.Arcade.Body;
             const googleFire = g as Phaser.GameObjects.Sprite;
 
-           // thatBody.rotation = 95;
-            this.gameScene.time.addEvent({
-               delay: 5,
-                callback: () => {
-                    this.decreaseLife();
-                },
-                loop: false
-            });
+
+            const googleFireBody = googleFire.body as Phaser.Physics.Arcade.Body;
+
+            googleFire.update(this.decreaseLife());
+            //thatBody.rotation = 95;
+
+            that.update(this.decreaseLife());
+
+            // this.gameScene.time.addEvent({
+            //     delay: 0,
+            //     repeat: 0,
+            //     callback: () => {
+            //         if (thatBody === body ) {
+            //             this.decreaseLife()
+            //         }
+            //     }
+            //     ,
+            //     loop: false,
+            // });
         });
+
+        // this.addCollider();
 
     }
 
     public decreaseLife(): void {
+
+        console.log("before => " + this.health);
+
+
         this.health = this.health - 1;
+
+        console.log(this.health);
 
         if (this.health < 1) {
             this.sprite.destroy();
         }
 
         const game = this.gameScene.game.scene.getScene('Game') as GameScene;
-        
+
         game.mageHealthBar.setTexture('enemyHealthBarWaring');
     }
 }
