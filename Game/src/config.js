@@ -13,7 +13,7 @@ export default {
         }
     },
     heroPosition: {
-        x: 180,
+        x: 60,
         y: 400
     },
     groundY: 620

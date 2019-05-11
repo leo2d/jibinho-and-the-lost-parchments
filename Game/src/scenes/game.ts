@@ -82,15 +82,16 @@ export default class GameScene extends Phaser.Scene {
         const javas = [new Java(this, this.hero).create(754, 420).withRouteLoop(900, 500),
         new Java(this, this.hero).create(1102, 420).withRouteLoop(1300, 350),
         new Java(this, this.hero).create(390, 390).withRouteLoop(530, 250),
-        new Java(this, this.hero).create(740, 295).withRouteLoop(890, 1080, 80),
+        new Java(this, this.hero).create(580, 295).withRouteLoop(890, 1080, 80),
+        new Java(this, this.hero).create(440, 140).withRouteLoop(890, 1080, 80),
         new Java(this, this.hero).create(1066, 120).withRouteLoop(1470, 1080, 80),
         ];
 
         const mage = new SnowMage(this, this.hero).create(180, 110);
         this.mageHealthBar = this.add.tileSprite(mage.sprite.x, (mage.sprite.y + 20), 57, 20, 'enemyHealthBarFine');
 
-        // const mage = new SnowMage(this, this.hero).create(250, 520);
-        // this.mageHealthBar = this.add.tileSprite(250, (mage.sprite.y -20), 57, 20, 'enemyHealthBarFine');
+        // const mage = new SnowMage(this, this.hero).create(200, 520);
+        // this.mageHealthBar = this.add.tileSprite(mage.sprite.x, (mage.sprite.y -20), 57, 20, 'enemyHealthBarFine');
 
         this.Boss = mage;
     }
@@ -108,7 +109,7 @@ export default class GameScene extends Phaser.Scene {
     }
 
     private addStageSprites(): void {
-        this.add.tileSprite(600, 100, 1920, 1080, 'bg');
+        this.add.tileSprite(600, 100, 1920, 1080, 'stage1Bg');
 
         this.add.tileSprite(1130, 130, 36, 32, 'portalClosed');
     }

@@ -12,7 +12,7 @@ export class Block {
 
     public addGround(x: number, y: number): void {
         const ground: Phaser.Physics.Arcade.Sprite
-            = this._gamePhysics.add.sprite(x, y, "ground");
+            = this._gamePhysics.add.sprite(x, y, "snowGround");
 
         const groundBody = ground.body as Phaser.Physics.Arcade.Body
 
@@ -26,18 +26,18 @@ export class Block {
 
     public addPlatform(): void {
 
-        const iceBlock = 'block';
+        const iceBlock = 'iceBlock';
         const icePlatformheight = 30;
 
         //mage platform
         this.addPlatforms(200, 234, 6 * 32, icePlatformheight, iceBlock);
-        this.addPlatforms(634, 418, 8 * 32, icePlatformheight, iceBlock);
-        this.addPlatforms(780, 330, 4 * 32, icePlatformheight, iceBlock);
-        this.addPlatforms(538, 279, 4 * 32, icePlatformheight, iceBlock);
+        this.addPlatforms(600, 418, 6 * 32, icePlatformheight, iceBlock);
+        this.addPlatforms(780, 330, 2 * 32, icePlatformheight, iceBlock);
+        this.addPlatforms(610, 279, 2 * 32, icePlatformheight, iceBlock);
         this.addPlatforms(442, 190, 4 * 32, icePlatformheight, iceBlock);
-        this.addPlatforms(900, 250, 4 * 32, icePlatformheight, iceBlock);
-        this.addPlatforms(382, 495, 6 * 32, icePlatformheight, iceBlock);
-
+        this.addPlatforms(900, 250, 2 * 32, icePlatformheight, iceBlock);
+       this.addPlatforms(382, 495, 6 * 32, icePlatformheight, iceBlock);
+        //portal
         this.addPlatforms(1060, 160, 6 * 32, icePlatformheight, iceBlock);
 
     }

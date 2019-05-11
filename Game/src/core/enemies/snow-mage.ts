@@ -5,14 +5,13 @@ import { Bug } from "./bug";
 import config from "../../config";
 import { GoogleFireAction } from '../actions/action';
 import GameScene from 'src/scenes/game';
-import { GameObjects } from 'phaser';
 import { HealthBarStatus } from './HealthBarStatus';
 
 export class SnowMage extends Enemy<SnowMage> {
 
     public health: number;
     public animations: Phaser.GameObjects.Components.Animation;
-    public healtBarAnimations: Phaser.GameObjects.Components.Animation;
+    private loopEvent: Phaser.Time.TimerEvent;
 
     constructor(
         gameScene: Phaser.Scene,
@@ -36,7 +35,7 @@ export class SnowMage extends Enemy<SnowMage> {
     }
 
     private registerLoopSkill(): void {
-        this.gameScene.time.addEvent({
+       this.loopEvent =  this.gameScene.time.addEvent({
             delay: 1500,
             callback: () => {
                 const position = this.body.position;
@@ -70,7 +69,12 @@ export class SnowMage extends Enemy<SnowMage> {
     }
 
     private addColliderWithGoogleFire(): void {
-       
+        this.addOverlap(GoogleFireAction.googleFireGroup, (that, g) => {
+
+            GoogleFireAction.destroyGroup();
+
+            this.decreaseLife()
+        });
     }
 
     public decreaseLife(): void {
@@ -103,7 +107,9 @@ export class SnowMage extends Enemy<SnowMage> {
 
     private kill(game: GameScene): void {
         this.body.destroy();
-        this.sprite.destroy();
+        this.sprite.setTexture('');
         game.mageHealthBar.destroy();
+
+        this.loopEvent.destroy();
     }
 }

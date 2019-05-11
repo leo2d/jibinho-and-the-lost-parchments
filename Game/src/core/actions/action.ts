@@ -88,4 +88,5 @@ export class GoogleFireAction extends Action {
             .entries
             .forEach(x => x.destroy());
     }
+
 }
