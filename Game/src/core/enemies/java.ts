@@ -43,7 +43,9 @@ export class Java extends Enemy<Java> {
         const googleFireGroup = GoogleFireAction.googleFireGroup;
         this.addOverlap(googleFireGroup, (that, g) => {
             const thatBody = that.body as Phaser.Physics.Arcade.Body;
-            const googleFire = g as Phaser.GameObjects.Sprite;
+            const gFireGroup = g as Phaser.GameObjects.Group;
+
+            GoogleFireAction.destroyGroup();
 
             thatBody.rotation = 95;
             this.gameScene.time.addEvent({

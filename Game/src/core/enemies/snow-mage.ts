@@ -6,6 +6,7 @@ import config from "../../config";
 import { GoogleFireAction } from '../actions/action';
 import GameScene from 'src/scenes/game';
 import { GameObjects } from 'phaser';
+import { HealthBarStatus } from './HealthBarStatus';
 
 export class SnowMage extends Enemy<SnowMage> {
 
@@ -26,7 +27,7 @@ export class SnowMage extends Enemy<SnowMage> {
         super.create(x, y, 'snowmage')
             .withBlockColisor().withMass(1);
 
-        // this.registerLoopSkill();
+        this.registerLoopSkill();
         this.addColliderWithHero();
         this.addColliderWithGoogleFire();
 
@@ -44,8 +45,8 @@ export class SnowMage extends Enemy<SnowMage> {
                 bug.create(position.x, position.y);
 
                 this.gameScene.physics.add.existing(bug.sprite, false);
-                const googleBulletBody = bug.body as Phaser.Physics.Arcade.Body;
-                googleBulletBody
+                const bugBody = bug.body as Phaser.Physics.Arcade.Body;
+                bugBody
                     .setAllowGravity(false)
                     .setCollideWorldBounds(true)
                     .setMass(10);
@@ -69,52 +70,40 @@ export class SnowMage extends Enemy<SnowMage> {
     }
 
     private addColliderWithGoogleFire(): void {
-        const body = this.body;
-        const googleFireGroup = GoogleFireAction.googleFireGroup;
-        this.addOverlap(this.sprite, (that, g) => {
-            const thatBody = that.body as Phaser.Physics.Arcade.Body;
-            const googleFire = g as Phaser.GameObjects.Sprite;
-
-
-            const googleFireBody = googleFire.body as Phaser.Physics.Arcade.Body;
-
-            googleFire.update(this.decreaseLife());
-            //thatBody.rotation = 95;
-
-            that.update(this.decreaseLife());
-
-            // this.gameScene.time.addEvent({
-            //     delay: 0,
-            //     repeat: 0,
-            //     callback: () => {
-            //         if (thatBody === body ) {
-            //             this.decreaseLife()
-            //         }
-            //     }
-            //     ,
-            //     loop: false,
-            // });
-        });
-
-        // this.addCollider();
-
+       
     }
 
     public decreaseLife(): void {
-
-        console.log("before => " + this.health);
-
-
         this.health = this.health - 1;
-
-        console.log(this.health);
-
-        if (this.health < 1) {
-            this.sprite.destroy();
-        }
 
         const game = this.gameScene.game.scene.getScene('Game') as GameScene;
 
-        game.mageHealthBar.setTexture('enemyHealthBarWaring');
+        if (this.health < 1) {
+            this.kill(game);
+            return;
+        }
+
+        let status = this.getHealthbarStatus(this.health);
+        game.mageHealthBar.setTexture(status);
+    }
+
+    private getHealthbarStatus(health: number): string {
+
+        switch (health) {
+            case (3):
+                return HealthBarStatus.WARING;
+            case (2):
+                return HealthBarStatus.CAUTION;
+            case (1):
+                return HealthBarStatus.DANGER;
+            default:
+                return HealthBarStatus.FINE;
+        }
+    }
+
+    private kill(game: GameScene): void {
+        this.body.destroy();
+        this.sprite.destroy();
+        game.mageHealthBar.destroy();
     }
 }

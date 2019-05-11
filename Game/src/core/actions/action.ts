@@ -56,14 +56,36 @@ export class GoogleFireAction extends Action {
 
                 googleBody.world.on('worldbounds', (body: Phaser.Physics.Arcade.Body) => {
                     // Check if the body's game object is the sprite you are listening for
-                    if (body.gameObject === googleBody.gameObject)
+                    if (body.gameObject === googleBody.gameObject) {
                         googleBullet.destroy();
+
+                        this.gameScene.time.addEvent({
+                            delay: 300,
+                            repeat: 0,
+                            callback: () => {
+                                GoogleFireAction.destroyGroup();
+                            },
+                            loop: false,
+                        });
+
+                    }
                 }, googleBullet);
 
                 const blockBody = block.body as Phaser.Physics.Arcade.Body;
 
+                if (GoogleFireAction.googleFireGroup.children.entries.length > 4) {
+                    GoogleFireAction.destroyGroup();
+                }
+
             });
 
         });
+    }
+
+    public static destroyGroup(): void {
+        GoogleFireAction.googleFireGroup
+            .children
+            .entries
+            .forEach(x => x.destroy());
     }
 }

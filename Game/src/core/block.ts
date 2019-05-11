@@ -29,22 +29,19 @@ export class Block {
         const iceBlock = 'block';
         const icePlatformheight = 30;
 
-        this.addPlatforms(240, 174, 5 * 32, icePlatformheight, iceBlock);
-        // this.addPlatforms(734, 395, 8 * 32, icePlatformheight, iceBlock);
+        //mage platform
+        this.addPlatforms(200, 234, 6 * 32, icePlatformheight, iceBlock);
         this.addPlatforms(634, 418, 8 * 32, icePlatformheight, iceBlock);
-
-        // this.addPlatforms(180, 500, 4 * 32, icePlatformheight, iceBlock);
-
-        // this.addPlatforms(380, 400, 6 * 32, icePlatformheight, iceBlock);
         this.addPlatforms(780, 330, 4 * 32, icePlatformheight, iceBlock);
         this.addPlatforms(538, 279, 4 * 32, icePlatformheight, iceBlock);
         this.addPlatforms(442, 190, 4 * 32, icePlatformheight, iceBlock);
         this.addPlatforms(900, 250, 4 * 32, icePlatformheight, iceBlock);
-        this.addPlatforms(382, 508, 6 * 32, icePlatformheight, iceBlock);
+        this.addPlatforms(382, 495, 6 * 32, icePlatformheight, iceBlock);
 
         this.addPlatforms(1060, 160, 6 * 32, icePlatformheight, iceBlock);
 
     }
+
     private addPlatforms(x: number, y: number, width: number,
         height: number, texture: string, movable = false): Phaser.GameObjects.TileSprite {
 
