@@ -1,20 +1,20 @@
 import iceBlock from "./images/textures/ice_block.png";
 import snowGround from "./images/textures/snow_ground.png";
 
-import glogo from "./images/g-logo.png";
+import glogo from "./images/commom/g-logo.png";
+import portalClosed from "./images/commom/portal-closed.png";
+import heart from "./images/commom/heart32.png";
 import javalogo from "./images/enemies/enemy_java.png";
 import snowmage from "./images/enemies/snow_mage.png";
 import bug from "./images/enemies/bug.png";
-import stage1Bg from "./images/stage1_bg.jpg";
+import stage1Bg from "./images/backgrounds/stage1_bg.jpg";
 import gameOver from "./images/scenes/game-over.png";
 import main from "./images/scenes/main.png";
-import heart from "./images/heart32.png";
 import tutorialBg from "./images/scenes/tutorial-controls.png";
-import portalClosed from "./images/portal-closed.png";
-import enemyHealthBarDanger from "./images/enemyHealthBar-danger.png";
-import enemyHealthBarCaution from "./images/enemyHealthBar-caution.png";
-import enemyHealthBarWaring from "./images/enemyHealthBar-waring.png";
-import enemyHealthBarFine from "./images/enemyHealthBar-fine.png";
+import enemyHealthBarDanger from "./images/health_bar/enemyHealthBar-danger.png";
+import enemyHealthBarCaution from "./images/health_bar/enemyHealthBar-caution.png";
+import enemyHealthBarWaring from "./images/health_bar/enemyHealthBar-waring.png";
+import enemyHealthBarFine from "./images/health_bar/enemyHealthBar-fine.png";
 
 export default {
     //scenes

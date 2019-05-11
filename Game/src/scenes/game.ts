@@ -13,6 +13,7 @@ import { Java } from '../core/enemies/java';
 import { SnowMage } from '../core/enemies/snow-mage';
 import { Bug } from 'src/core/enemies/bug';
 import { Enemy } from 'src/core/engine/enemy';
+import { HealthBarStatus } from './../core/enemies/HealthBarStatus';
 
 
 export default class GameScene extends Phaser.Scene {
@@ -88,7 +89,7 @@ export default class GameScene extends Phaser.Scene {
         ];
 
         const mage = new SnowMage(this, this.hero).create(180, 110);
-        this.mageHealthBar = this.add.tileSprite(mage.sprite.x, (mage.sprite.y + 20), 57, 20, 'enemyHealthBarFine');
+        this.mageHealthBar = this.add.tileSprite(mage.sprite.x, (mage.sprite.y + 20), 57, 20, HealthBarStatus.FINE);
 
         // const mage = new SnowMage(this, this.hero).create(200, 520);
         // this.mageHealthBar = this.add.tileSprite(mage.sprite.x, (mage.sprite.y -20), 57, 20, 'enemyHealthBarFine');

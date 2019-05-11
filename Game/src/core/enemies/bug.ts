@@ -42,7 +42,7 @@ export class Bug extends Enemy<Bug> {
             heroBody.y = config.heroPosition.y;
 
             that.destroy();
-             this.hero.decreaseLife();
+            this.hero.decreaseLife();
         });
     }
 

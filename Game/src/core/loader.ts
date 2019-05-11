@@ -22,7 +22,7 @@ export class Loader {
         loadPlugin.image("enemyHealthBarWaring", assets.enemyHealthBarWaring);
         loadPlugin.image("enemyHealthBarFine", assets.enemyHealthBarFine);
 
-        loadPlugin.atlas('player-walking', 'src/assets/images/walk.png', 'src/assets/json/walk.json');
+        loadPlugin.atlas('player-walking', 'src/assets/images/hero/walk.png', 'src/assets/json/walk.json');
 
     }
 }
