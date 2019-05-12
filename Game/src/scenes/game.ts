@@ -14,6 +14,7 @@ import { SnowMage } from '../core/enemies/snow-mage';
 import { Bug } from 'src/core/enemies/bug';
 import { Enemy } from 'src/core/engine/enemy';
 import { HealthBarStatus } from './../core/enemies/HealthBarStatus';
+import Portal from './../core/items/portal';
 
 
 export default class GameScene extends Phaser.Scene {
@@ -23,6 +24,7 @@ export default class GameScene extends Phaser.Scene {
     public animation: Animation;
     public hearts: Phaser.GameObjects.TileSprite[];
     public mageHealthBar: Phaser.GameObjects.TileSprite;
+    public portal: Portal;
 
     public cursorKeys: Input.Keyboard.CursorKeys;
 
@@ -51,6 +53,7 @@ export default class GameScene extends Phaser.Scene {
 
         this.addHero();
 
+        this.addStageItems();
         this.addStageEnemies();
         this.addStageHud();
         this.assignMoves();
@@ -77,6 +80,13 @@ export default class GameScene extends Phaser.Scene {
         let jumpmove = new JumpMove(this.hero, this.cursorKeys).withSpeed(this.hero.speed);
         jumpmove.moveAssign();
     }
+
+    private addStageItems(): void {
+        this.portal = new Portal(this, this.hero)
+            .create(1130, 130, 'portalClosed')
+            .withBlockColisor();
+    }
+
 
     private addStageEnemies(): void {
 
@@ -111,8 +121,6 @@ export default class GameScene extends Phaser.Scene {
 
     private addStageSprites(): void {
         this.add.tileSprite(600, 100, 1920, 1080, 'stage1Bg');
-
-        this.add.tileSprite(1130, 130, 36, 32, 'portalClosed');
     }
 
     private addStageBlocks(): void {

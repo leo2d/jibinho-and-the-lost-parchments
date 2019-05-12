@@ -12,15 +12,18 @@ export class Loader {
         loadPlugin.image("snowmage", assets.snowmage);
         loadPlugin.image("bug", assets.bug);
         loadPlugin.image("stage1Bg", assets.stage1Bg);
+        loadPlugin.image("firstStageEnd", assets.firstStageEnd);
         loadPlugin.image("gameOver", assets.gameOver);
         loadPlugin.image("main", assets.main);
         loadPlugin.image("heart", assets.heart);
         loadPlugin.image("tutorialBg", assets.tutorialBg);
         loadPlugin.image("portalClosed", assets.portalClosed);
+        loadPlugin.image("portalOpen", assets.portalOpen);
         loadPlugin.image("enemyHealthBarDanger", assets.enemyHealthBarDanger);
         loadPlugin.image("enemyHealthBarCaution", assets.enemyHealthBarCaution);
         loadPlugin.image("enemyHealthBarWaring", assets.enemyHealthBarWaring);
         loadPlugin.image("enemyHealthBarFine", assets.enemyHealthBarFine);
+        loadPlugin.image("stage1Parchment", assets.stage1Parchment);
 
         loadPlugin.atlas('player-walking', 'src/assets/images/hero/walk.png', 'src/assets/json/walk.json');
 

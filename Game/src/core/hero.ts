@@ -11,6 +11,7 @@ export class Hero {
     public jumpSpeed: number;
     public animations: Phaser.GameObjects.Components.Animation;
     public lifes: number;
+    public hasKey: boolean;
 
     public lookingAt: 'back' | 'front';
 
@@ -18,7 +19,8 @@ export class Hero {
         this.lookingAt = 'front';
 
         this.lifes = 3;
-
+        this.hasKey = false;
+        
         const gamePhysics = this._gameScene.physics;
 
         this.speed = 150;

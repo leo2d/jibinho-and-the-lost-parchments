@@ -6,6 +6,7 @@ import config from "../../config";
 import { GoogleFireAction } from '../actions/action';
 import GameScene from 'src/scenes/game';
 import { HealthBarStatus } from './HealthBarStatus';
+import Parchment from '../items/parchment';
 
 export class SnowMage extends Enemy<SnowMage> {
 
@@ -19,7 +20,6 @@ export class SnowMage extends Enemy<SnowMage> {
         super(gameScene);
 
         this.health = 4;
-
     }
 
     public create(x: number, y: number): SnowMage {
@@ -30,12 +30,11 @@ export class SnowMage extends Enemy<SnowMage> {
         this.addColliderWithHero();
         this.addColliderWithGoogleFire();
 
-
         return this;
     }
 
     private registerLoopSkill(): void {
-       this.loopEvent =  this.gameScene.time.addEvent({
+        this.loopEvent = this.gameScene.time.addEvent({
             delay: 1500,
             callback: () => {
                 const position = this.body.position;
@@ -89,6 +88,7 @@ export class SnowMage extends Enemy<SnowMage> {
 
         let status = this.getHealthbarStatus(this.health);
         game.mageHealthBar.setTexture(status);
+
     }
 
     private getHealthbarStatus(health: number): string {
@@ -107,9 +107,14 @@ export class SnowMage extends Enemy<SnowMage> {
 
     private kill(game: GameScene): void {
         this.body.destroy();
-        this.sprite.setTexture('');
+        this.sprite.destroy();
         game.mageHealthBar.destroy();
 
         this.loopEvent.destroy();
+
+        new Parchment(this.gameScene, this.hero)
+            .create(this.sprite.x, this.sprite.y, 'stage1Parchment')
+            .withBlockColisor();
+
     }
 }
