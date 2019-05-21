@@ -23,7 +23,6 @@ export default class GameScene extends Phaser.Scene {
     public Boss: SnowMage;
     public animation: Animation;
     public hearts: Phaser.GameObjects.TileSprite[];
-    public mageHealthBar: Phaser.GameObjects.TileSprite;
     public portal: Portal;
 
     public cursorKeys: Input.Keyboard.CursorKeys;
@@ -99,7 +98,6 @@ export default class GameScene extends Phaser.Scene {
         ];
 
         const mage = new SnowMage(this, this.hero).create(180, 110);
-        this.mageHealthBar = this.add.tileSprite(mage.sprite.x, (mage.sprite.y + 20), 57, 20, HealthBarStatus.FINE);
 
         // const mage = new SnowMage(this, this.hero).create(200, 520);
         // this.mageHealthBar = this.add.tileSprite(mage.sprite.x, (mage.sprite.y -20), 57, 20, 'enemyHealthBarFine');
