@@ -8,7 +8,9 @@ export default class Portal extends Item<Portal>{
 
     constructor(
         gameScene: Phaser.Scene,
-        private hero: Hero) {
+        private hero: Hero,
+        private origin: string,
+        private destiny:string) {
         super(gameScene);
     }
 
@@ -28,7 +30,7 @@ export default class Portal extends Item<Portal>{
         this.addOverlap(this.hero.sprite, (that, h) => {
             
             if(this.hero.hasKey && this.isOpen){
-                this.gameScene.game.scene.switch('Game', 'FirstStageEnd');
+                this.gameScene.game.scene.switch(this.origin, this.destiny);
             }
                 
         });

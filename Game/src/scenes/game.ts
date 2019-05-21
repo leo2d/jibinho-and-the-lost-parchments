@@ -15,9 +15,10 @@ import { Bug } from 'src/core/enemies/bug';
 import { Enemy } from 'src/core/engine/enemy';
 import { HealthBarStatus } from './../core/enemies/HealthBarStatus';
 import Portal from './../core/items/portal';
+import IStage from './IStage';
 
 
-export default class GameScene extends Phaser.Scene {
+export default class GameScene extends Phaser.Scene implements IStage {
 
     public hero: Hero;
     public Boss: SnowMage;
@@ -81,7 +82,7 @@ export default class GameScene extends Phaser.Scene {
     }
 
     private addStageItems(): void {
-        this.portal = new Portal(this, this.hero)
+        this.portal = new Portal(this, this.hero, 'Game', 'FirstStageEnd')
             .create(1130, 130, 'portalClosed')
             .withBlockColisor();
     }

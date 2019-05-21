@@ -16,7 +16,6 @@ export class SnowMage extends Mage<SnowMage> {
         hero: Hero) {
         super(gameScene, hero);
 
-        this.health = 4;
     }
 
     public create(x: number, y: number): SnowMage {

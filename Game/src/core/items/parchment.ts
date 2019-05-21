@@ -1,6 +1,7 @@
 import { Hero } from "../hero";
 import GameScene from "src/scenes/game";
 import { Item } from "../engine/item";
+import IStage from "src/scenes/IStage";
 
 export default class Parchment extends Item<Parchment>{
 
@@ -24,7 +25,7 @@ export default class Parchment extends Item<Parchment>{
         this.addOverlap(this.hero.sprite, (that, h) => {
             that.destroy();
 
-            const game = this.gameScene.game.scene.getScene('Game') as GameScene;
+            const game = this.gameScene as unknown as IStage;
             game.portal.openPortal();
 
             this.hero.hasKey = true;

@@ -7,9 +7,9 @@ import Parchment from '../items/parchment';
 
 export default class Mage<T> extends Enemy<Mage<T>>
 {
-    
+
     public health: number;
-    public mageHealthBar: Phaser.GameObjects.TileSprite;    
+    public mageHealthBar: Phaser.GameObjects.TileSprite;
     public animations: Phaser.GameObjects.Components.Animation;
     protected loopEvent: Phaser.Time.TimerEvent;
 
@@ -18,7 +18,7 @@ export default class Mage<T> extends Enemy<Mage<T>>
         protected hero: Hero) {
         super(gameScene);
 
-        // this.health = 4;
+        this.health = 4;
     }
 
     public create(x: number, y: number, texture: string): Mage<T> {
@@ -28,7 +28,9 @@ export default class Mage<T> extends Enemy<Mage<T>>
         this.addColliderWithHero();
         this.addColliderWithGoogleFire();
 
-        this.mageHealthBar = this.gameScene.add.tileSprite(this.sprite.x, (this.sprite.y + 20), 57, 20, HealthBarStatus.FINE);
+        this.mageHealthBar = this.gameScene
+            .add.tileSprite(this.sprite.x,
+                (this.sprite.y + 20), 57, 20, HealthBarStatus.FINE);
 
         return this;
     }

@@ -12,14 +12,14 @@ import { HealthBarStatus } from "../../core/enemies/HealthBarStatus";
 import { Block } from "../../core/block";
 import { GoogleFireAction } from "../../core/actions/action";
 import config from "../../config";
+import IStage from "../IStage";
 
-export default class SecondStage extends Phaser.Scene {
+export default class SecondStage extends Phaser.Scene implements IStage{
 
     public hero: Hero;
     public Boss: ThunderMage;
     public animation: Animation;
     public hearts: Phaser.GameObjects.TileSprite[];
-    public mageHealthBar: Phaser.GameObjects.TileSprite;
     public portal: Portal;
 
     public cursorKeys: Input.Keyboard.CursorKeys;
@@ -78,7 +78,7 @@ export default class SecondStage extends Phaser.Scene {
     }
 
     private addStageItems(): void {
-        this.portal = new Portal(this, this.hero)
+        this.portal = new Portal(this, this.hero, 'SecondStage', 'FirstStageEnd')
             .create(1130, 130, 'portalClosed')
             .withBlockColisor();
     }
@@ -94,8 +94,7 @@ export default class SecondStage extends Phaser.Scene {
         new Java(this, this.hero).create(1066, 120).withRouteLoop(1470, 1080, 80),
         ];
 
-        const mage = new SnowMage(this, this.hero).create(180, 110);
-        this.mageHealthBar = this.add.tileSprite(mage.sprite.x, (mage.sprite.y + 20), 57, 20, HealthBarStatus.FINE);
+        const mage = new ThunderMage(this, this.hero).create(180, 110);
 
         // const mage = new SnowMage(this, this.hero).create(200, 520);
         // this.mageHealthBar = this.add.tileSprite(mage.sprite.x, (mage.sprite.y -20), 57, 20, 'enemyHealthBarFine');
