@@ -14,7 +14,7 @@ import { GoogleFireAction } from "../../core/actions/action";
 import config from "../../config";
 import IStage from "../IStage";
 
-export default class SecondStage extends Phaser.Scene implements IStage{
+export default class SecondStage extends Phaser.Scene implements IStage {
 
     public hero: Hero;
     public Boss: ThunderMage;
@@ -29,7 +29,7 @@ export default class SecondStage extends Phaser.Scene implements IStage{
     }
 
     getStageName(): string {
-       return 'SecondStage';
+        return 'SecondStage';
     }
 
     public init() {
@@ -95,13 +95,11 @@ export default class SecondStage extends Phaser.Scene implements IStage{
         new Java(this, this.hero).create(390, 390).withRouteLoop(530, 250),
         new Java(this, this.hero).create(580, 295).withRouteLoop(890, 1080, 80),
         new Java(this, this.hero).create(440, 140).withRouteLoop(890, 1080, 80),
-        new Java(this, this.hero).create(1066, 120).withRouteLoop(1470, 1080, 80),
+            //new Java(this, this.hero).create(1066, 120).withRouteLoop(1470, 1080, 80),
         ];
 
-        const mage = new ThunderMage(this, this.hero).create(180, 110);
-
-        // const mage = new SnowMage(this, this.hero).create(200, 520);
-        // this.mageHealthBar = this.add.tileSprite(mage.sprite.x, (mage.sprite.y -20), 57, 20, 'enemyHealthBarFine');
+        const mage = new ThunderMage(this, this.hero).create(1066, 100);
+        mage.setHealthBarPosition((mage.sprite.x + 10), (mage.sprite.y - 35));
 
         this.Boss = mage;
     }

@@ -10,6 +10,7 @@ export class Loader {
         loadPlugin.image("glogo", assets.glogo);
         loadPlugin.image("javalogo", assets.javalogo);
         loadPlugin.image("snowmage", assets.snowmage);
+        loadPlugin.image("thundermage", assets.thundermage);
         loadPlugin.image("bug", assets.bug);
         loadPlugin.image("stage1Bg", assets.stage1Bg);
         loadPlugin.image("firstStageEnd", assets.firstStageEnd);

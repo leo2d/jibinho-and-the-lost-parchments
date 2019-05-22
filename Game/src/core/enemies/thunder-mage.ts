@@ -11,7 +11,7 @@ export default class ThunderMage extends Mage<ThunderMage>{
     }
 
     public create(x: number, y: number): ThunderMage {
-        super.create(x, y, 'snowmage');
+        super.create(x, y, 'thundermage');
 
         this.registerLoopSkill();
 

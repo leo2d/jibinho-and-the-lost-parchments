@@ -7,6 +7,7 @@ import portalOpen from "./images/commom/portal-open.png";
 import heart from "./images/commom/heart32.png";
 import javalogo from "./images/enemies/enemy_java.png";
 import snowmage from "./images/enemies/snow_mage.png";
+import thundermage from "./images/enemies/thunder_mage.png";
 import bug from "./images/enemies/bug.png";
 import stage1Bg from "./images/backgrounds/stage1_bg.jpg";
 import gameOver from "./images/scenes/game-over.png";
@@ -39,8 +40,8 @@ export default {
 
     //stage1
     stage1Bg: stage1Bg,
-    stage1Parchment:stage1Parchment,
-    firstStageEnd:firstStageEnd,
+    stage1Parchment: stage1Parchment,
+    firstStageEnd: firstStageEnd,
     //enemies
     bug: bug,
     javalogo: javalogo,
@@ -50,5 +51,7 @@ export default {
     snowGround: snowGround,
     //end stage1
 
+    //stage2
+    thundermage: thundermage,
 };
 

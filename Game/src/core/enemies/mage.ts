@@ -35,6 +35,13 @@ export default class Mage<T> extends Enemy<Mage<T>>
         return this;
     }
 
+    public setHealthBarPosition(x?: number, y?: number): void {
+        if (null != x)
+            this.mageHealthBar.setX(x);
+        if (null != y)
+            this.mageHealthBar.setY(y);
+    }
+
     private addColliderWithHero(): void {
         this.addOverlap(this.hero.sprite, (that, h) => {
             const heroSprite = h as Phaser.GameObjects.Sprite;
