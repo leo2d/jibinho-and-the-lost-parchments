@@ -2,6 +2,7 @@ import { AUTO } from "phaser";
 import config from "../config";
 import { get } from "https";
 import GameScene from "src/scenes/game";
+import IStage from "src/scenes/IStage";
 
 export class Hero {
 
@@ -38,14 +39,14 @@ export class Hero {
     public decreaseLife(): void {
         this.lifes = this.lifes - 1;
 
+        const scene = this._gameScene as unknown as IStage;
+
         if (this.lifes < 1) {
-            this._gameScene.game.scene.switch('Game', 'GameOver');
+            this._gameScene.game.scene.switch(scene.getStageName(), 'GameOver');
         }
 
-        const game = this._gameScene.game.scene.getScene('Game') as GameScene;
-
-        if (game.hearts.length > 0 && this.lifes > 0) {
-            let heart = game.hearts[this.lifes];
+        if (scene.hearts.length > 0 && this.lifes > 0) {
+            let heart = scene.hearts[this.lifes];
             heart.destroy();
         }
     }

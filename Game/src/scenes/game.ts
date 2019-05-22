@@ -32,6 +32,10 @@ export default class GameScene extends Phaser.Scene implements IStage {
         super(key);
     }
 
+    getStageName(): string {
+        return 'Game';
+    }
+
     public init() {
 
     }

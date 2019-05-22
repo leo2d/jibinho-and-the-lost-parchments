@@ -28,6 +28,10 @@ export default class SecondStage extends Phaser.Scene implements IStage{
         super(key);
     }
 
+    getStageName(): string {
+       return 'SecondStage';
+    }
+
     public init() {
 
     }
