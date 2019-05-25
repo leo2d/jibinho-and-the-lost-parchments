@@ -1,6 +1,7 @@
 import iceBlock from "./images/textures/ice_block.png";
 import stoneBlock from "./images/textures/stoneBlock.png";
 import snowGround from "./images/textures/snow_ground.png";
+import stoneGround from "./images/textures/stone-ground.png";
 
 import glogo from "./images/commom/g-logo.png";
 import portalClosed from "./images/commom/portal-closed.png";
@@ -12,6 +13,7 @@ import snowmage from "./images/enemies/snow_mage.png";
 import thundermage from "./images/enemies/thunder_mage.png";
 import bug from "./images/enemies/bug.png";
 import stage1Bg from "./images/backgrounds/stage1_bg.jpg";
+import stage2Bg from "./images/backgrounds/stage2_bg.png";
 import gameOver from "./images/scenes/game-over.png";
 import main from "./images/scenes/main.png";
 import firstStageEnd from "./images/scenes/first-stage-end.png";
@@ -56,6 +58,9 @@ export default {
     //stage2
     thundermage: thundermage,
     csharplogo:csharplogo,
-    stoneBlock:stoneBlock
+    stoneBlock:stoneBlock,
+    stoneGround:stoneGround,
+    stage2Bg: stage2Bg,
+
 };
 

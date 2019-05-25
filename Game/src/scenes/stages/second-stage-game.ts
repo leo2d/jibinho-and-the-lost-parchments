@@ -128,7 +128,7 @@ export default class SecondStage extends Phaser.Scene implements IStage {
     }
 
     private addStageSprites(): void {
-        this.add.tileSprite(600, 100, 1920, 1080, 'stage1Bg');
+        this.add.tileSprite(600, 100, 1920, 1080, 'stage2Bg');
     }
 
     private addStageBlocks(): void {
@@ -138,7 +138,7 @@ export default class SecondStage extends Phaser.Scene implements IStage {
         const groundQuantity = Math.round(config.width / groundSpriteWidth);
 
         for (let i = 0; i <= groundQuantity; i++) {
-            gameBlocks.addGround(i * groundSpriteWidth, 620);
+            gameBlocks.addStoneGround(i * groundSpriteWidth, 620);
         }
 
         gameBlocks.addStonePlatforms();

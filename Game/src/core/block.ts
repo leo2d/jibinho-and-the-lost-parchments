@@ -24,6 +24,20 @@ export class Block {
         Block.blocksGroup.add(ground);
     }
 
+    public addStoneGround(x: number, y: number): void {
+        const ground: Phaser.Physics.Arcade.Sprite
+            = this._gamePhysics.add.sprite(x, y, "stoneGround");
+
+        const groundBody = ground.body as Phaser.Physics.Arcade.Body
+
+        this._gamePhysics.add.existing(ground, true);
+
+        groundBody.setAllowGravity(false);
+        groundBody.setImmovable(true);
+
+        Block.blocksGroup.add(ground);
+    }
+
     public addSnowPlatforms(): void {
 
         const iceBlock = 'iceBlock';
@@ -58,9 +72,6 @@ export class Block {
         this.addPlatforms(260, 190, 4 * 30, stonePlatformHeiht, stoneBlock);
         //portal
         this.addPlatforms(540, 190, 6 * 30, stonePlatformHeiht, stoneBlock);
-        // this.addPlatforms(480, 390, 4 * 30, stonePlatformHeiht, stoneBlock);
-       // this.addPlatforms(900, 250, 2 * 30, stonePlatformHeiht, stoneBlock);
-
         //mais proximo do chao
         this.addPlatforms(470, 495, 6 * 30, stonePlatformHeiht, stoneBlock);
 
