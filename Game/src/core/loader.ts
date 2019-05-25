@@ -6,9 +6,11 @@ export class Loader {
        // loadPlugin.multiatlas('background-p1', 'src/assets/json/background-phase1.json', 'src/assets/images');
 
         loadPlugin.image("iceBlock", assets.iceBlock);
+        loadPlugin.image("stoneBlock", assets.stoneBlock);
         loadPlugin.image("snowGround", assets.snowGround);
         loadPlugin.image("glogo", assets.glogo);
         loadPlugin.image("javalogo", assets.javalogo);
+        loadPlugin.image("csharplogo", assets.csharplogo);
         loadPlugin.image("snowmage", assets.snowmage);
         loadPlugin.image("thundermage", assets.thundermage);
         loadPlugin.image("bug", assets.bug);

@@ -24,7 +24,7 @@ export class Block {
         Block.blocksGroup.add(ground);
     }
 
-    public addPlatform(): void {
+    public addSnowPlatforms(): void {
 
         const iceBlock = 'iceBlock';
         const icePlatformheight = 30;
@@ -39,6 +39,34 @@ export class Block {
        this.addPlatforms(382, 495, 6 * 32, icePlatformheight, iceBlock);
         //portal
         this.addPlatforms(1060, 160, 6 * 32, icePlatformheight, iceBlock);
+
+    }
+    
+    public addStonePlatforms(): void {
+
+        const stoneBlock = 'stoneBlock';
+        const stonePlatformHeiht = 30;
+
+        this.addPlatforms(100, 300, 4 * 30, stonePlatformHeiht, stoneBlock);
+        this.addPlatforms(300, 390, 6 * 30, stonePlatformHeiht, stoneBlock);
+
+        this.addPlatforms(720, 420, 4 * 30, stonePlatformHeiht, stoneBlock);
+        this.addPlatforms(840, 310, 3 * 30, stonePlatformHeiht, stoneBlock);
+
+        this.addPlatforms(900, 230, 2 * 30, stonePlatformHeiht, stoneBlock);
+        
+        this.addPlatforms(260, 190, 4 * 30, stonePlatformHeiht, stoneBlock);
+        //portal
+        this.addPlatforms(540, 190, 6 * 30, stonePlatformHeiht, stoneBlock);
+        // this.addPlatforms(480, 390, 4 * 30, stonePlatformHeiht, stoneBlock);
+       // this.addPlatforms(900, 250, 2 * 30, stonePlatformHeiht, stoneBlock);
+
+        //mais proximo do chao
+        this.addPlatforms(470, 495, 6 * 30, stonePlatformHeiht, stoneBlock);
+
+        //mage
+        this.addPlatforms(1110, 160, 5 * 30, stonePlatformHeiht, stoneBlock);
+        this.addPlatforms(1100, 360, 6 * 30, stonePlatformHeiht, stoneBlock);
 
     }
 

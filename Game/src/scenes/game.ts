@@ -136,7 +136,7 @@ export default class GameScene extends Phaser.Scene implements IStage {
             gameBlocks.addGround(i * groundSpriteWidth, 620);
         }
 
-        gameBlocks.addPlatform();
+        gameBlocks.addSnowPlatforms();
     }
 
     private addStageHud(): void {

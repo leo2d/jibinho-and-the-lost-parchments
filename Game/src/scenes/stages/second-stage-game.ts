@@ -13,6 +13,7 @@ import { Block } from "../../core/block";
 import { GoogleFireAction } from "../../core/actions/action";
 import config from "../../config";
 import IStage from "../IStage";
+import { CSharp } from './../../core/enemies/csharp';
 
 export default class SecondStage extends Phaser.Scene implements IStage {
 
@@ -90,12 +91,12 @@ export default class SecondStage extends Phaser.Scene implements IStage {
 
     private addStageEnemies(): void {
 
-        const javas = [new Java(this, this.hero).create(754, 420).withRouteLoop(900, 500),
-        new Java(this, this.hero).create(1102, 420).withRouteLoop(1300, 350),
-        new Java(this, this.hero).create(390, 390).withRouteLoop(530, 250),
-        new Java(this, this.hero).create(580, 295).withRouteLoop(890, 1080, 80),
-        new Java(this, this.hero).create(440, 140).withRouteLoop(890, 1080, 80),
-            //new Java(this, this.hero).create(1066, 120).withRouteLoop(1470, 1080, 80),
+        const cSharps = [new CSharp(this, this.hero).create(754, 420).withRouteLoop(900, 500),
+        // new CSharp(this, this.hero).create(1102, 420).withRouteLoop(1300, 350),
+        // new CSharp(this, this.hero).create(390, 390).withRouteLoop(530, 250),
+        // new CSharp(this, this.hero).create(580, 295).withRouteLoop(890, 1080, 80),
+        // new CSharp(this, this.hero).create(440, 140).withRouteLoop(890, 1080, 80),
+            //new CSharp(this, this.hero).create(1066, 120).withRouteLoop(1470, 1080, 80),
         ];
 
         const mage = new ThunderMage(this, this.hero).create(1066, 100);
@@ -130,7 +131,7 @@ export default class SecondStage extends Phaser.Scene implements IStage {
             gameBlocks.addGround(i * groundSpriteWidth, 620);
         }
 
-        gameBlocks.addPlatform();
+        gameBlocks.addStonePlatforms();
     }
 
     private addStageHud(): void {
