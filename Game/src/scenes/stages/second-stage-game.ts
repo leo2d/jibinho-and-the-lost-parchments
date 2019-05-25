@@ -84,19 +84,29 @@ export default class SecondStage extends Phaser.Scene implements IStage {
 
     private addStageItems(): void {
         this.portal = new Portal(this, this.hero, 'SecondStage', 'FirstStageEnd')
-            .create(1130, 130, 'portalClosed')
+            .create(590, 160, 'portalClosed')
             .withBlockColisor();
     }
 
 
     private addStageEnemies(): void {
 
-        const cSharps = [new CSharp(this, this.hero).create(754, 420).withRouteLoop(900, 500),
-        // new CSharp(this, this.hero).create(1102, 420).withRouteLoop(1300, 350),
-        // new CSharp(this, this.hero).create(390, 390).withRouteLoop(530, 250),
-        // new CSharp(this, this.hero).create(580, 295).withRouteLoop(890, 1080, 80),
-        // new CSharp(this, this.hero).create(440, 140).withRouteLoop(890, 1080, 80),
-            //new CSharp(this, this.hero).create(1066, 120).withRouteLoop(1470, 1080, 80),
+        const cSharps = [
+        
+            //plataforma mais alta
+            new CSharp(this, this.hero).create(260, 150).withRouteLoop(530, 200),
+
+            //plataformas terceiro nivel
+            new CSharp(this, this.hero).create(830, 275).withRouteLoop(890, 350, 40),
+
+            //plataformas segundo nivel
+            new CSharp(this, this.hero).create(710, 350).withRouteLoop(890, 900, 60),
+            new CSharp(this, this.hero).create(250, 330).withRouteLoop(1470, 1080, 120),
+        
+            //chao
+            new CSharp(this, this.hero).create(360, 550).withRouteLoop(1300, 350),
+            new CSharp(this, this.hero).create(580, 550).withRouteLoop(900, 500),
+            new CSharp(this, this.hero).create(1030, 550).withRouteLoop(1000, 280),
         ];
 
         const mage = new ThunderMage(this, this.hero).create(1066, 100);
