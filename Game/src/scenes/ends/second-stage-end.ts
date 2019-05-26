@@ -1,9 +1,8 @@
-
 import { Input } from 'phaser';
 import { Loader } from '../../core/loader';
 
 
-export default class FirstStageEndScene extends Phaser.Scene {
+export default class SecondStageEndScene extends Phaser.Scene {
     public constructor(key) {
         super(key);
     }
@@ -18,12 +17,12 @@ export default class FirstStageEndScene extends Phaser.Scene {
         new Loader(this.load);
     }
     public create() {
-        this.add.tileSprite(625, 320, 1250, 640, 'firstStageEnd');
+        this.add.tileSprite(625, 320, 1250, 640, 'secondStageEnd');
 
         this.cursorKeys = this.input.keyboard.createCursorKeys();
 
         this.cursorKeys.space.on('down', () => {
-            this.scene.switch("SecondStage");
+            window.location.reload();
         });
     }
 }

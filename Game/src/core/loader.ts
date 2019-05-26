@@ -18,6 +18,7 @@ export class Loader {
         loadPlugin.image("stage2Bg", assets.stage2Bg);
         loadPlugin.image("stage1Bg", assets.stage1Bg);
         loadPlugin.image("firstStageEnd", assets.firstStageEnd);
+        loadPlugin.image("secondStageEnd", assets.secondStageEnd);
         loadPlugin.image("gameOver", assets.gameOver);
         loadPlugin.image("main", assets.main);
         loadPlugin.image("heart", assets.heart);

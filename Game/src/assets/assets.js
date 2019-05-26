@@ -17,6 +17,7 @@ import stage2Bg from "./images/backgrounds/stage2_bg.png";
 import gameOver from "./images/scenes/game-over.png";
 import main from "./images/scenes/main.png";
 import firstStageEnd from "./images/scenes/first-stage-end.png";
+import secondStageEnd from "./images/scenes/second-stage-end.png";
 import tutorialBg from "./images/scenes/tutorial-controls.png";
 import enemyHealthBarDanger from "./images/health_bar/enemyHealthBar-danger.png";
 import enemyHealthBarCaution from "./images/health_bar/enemyHealthBar-caution.png";
@@ -61,6 +62,7 @@ export default {
     stoneBlock:stoneBlock,
     stoneGround:stoneGround,
     stage2Bg: stage2Bg,
+    secondStageEnd: secondStageEnd,
 
 };
 
