@@ -2,6 +2,7 @@ import iceBlock from "./images/textures/ice_block.png";
 import stoneBlock from "./images/textures/stoneBlock.png";
 import snowGround from "./images/textures/snow_ground.png";
 import stoneGround from "./images/textures/stone-ground.png";
+import redGround from "./images/textures/red_ground.png";
 
 import glogo from "./images/commom/g-logo.png";
 import portalClosed from "./images/commom/portal-closed.png";
@@ -64,7 +65,10 @@ export default {
     stoneGround:stoneGround,
     stage2Bg: stage2Bg,
     secondStageEnd: secondStageEnd,
+
+    //stage3
     firemage: firemage,
+    redGround: redGround,
 
 };
 

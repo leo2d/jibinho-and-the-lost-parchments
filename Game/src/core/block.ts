@@ -38,6 +38,20 @@ export class Block {
         Block.blocksGroup.add(ground);
     }
 
+    public addRedGround(x: number, y: number): void {
+        const ground: Phaser.Physics.Arcade.Sprite
+            = this._gamePhysics.add.sprite(x, y, "redGround");
+
+        const groundBody = ground.body as Phaser.Physics.Arcade.Body
+
+        this._gamePhysics.add.existing(ground, true);
+
+        groundBody.setAllowGravity(false);
+        groundBody.setImmovable(true);
+
+        Block.blocksGroup.add(ground);
+    }
+
     public addSnowPlatforms(): void {
 
         const iceBlock = 'iceBlock';
@@ -50,12 +64,12 @@ export class Block {
         this.addPlatforms(610, 279, 2 * 32, icePlatformheight, iceBlock);
         this.addPlatforms(442, 190, 4 * 32, icePlatformheight, iceBlock);
         this.addPlatforms(900, 250, 2 * 32, icePlatformheight, iceBlock);
-       this.addPlatforms(382, 495, 6 * 32, icePlatformheight, iceBlock);
+        this.addPlatforms(382, 495, 6 * 32, icePlatformheight, iceBlock);
         //portal
         this.addPlatforms(1060, 160, 6 * 32, icePlatformheight, iceBlock);
 
     }
-    
+
     public addStonePlatforms(): void {
 
         const stoneBlock = 'stoneBlock';
@@ -68,7 +82,7 @@ export class Block {
         this.addPlatforms(840, 310, 3 * 30, stonePlatformHeiht, stoneBlock);
 
         this.addPlatforms(900, 230, 2 * 30, stonePlatformHeiht, stoneBlock);
-        
+
         this.addPlatforms(260, 190, 4 * 30, stonePlatformHeiht, stoneBlock);
         //portal
         this.addPlatforms(540, 190, 6 * 30, stonePlatformHeiht, stoneBlock);
@@ -78,6 +92,46 @@ export class Block {
         //mage
         this.addPlatforms(1110, 160, 5 * 30, stonePlatformHeiht, stoneBlock);
         this.addPlatforms(1100, 360, 6 * 30, stonePlatformHeiht, stoneBlock);
+
+    }
+
+    public addRedPlatforms() {
+        const stoneBlock = 'stoneBlock';
+        const stonePlatformHeiht = 30;
+
+        this.addPlatforms(790, 420, 4 * 30, stonePlatformHeiht, stoneBlock);
+        this.addPlatforms(640, 510, 3 * 30, stonePlatformHeiht, stoneBlock);
+
+
+        this.addPlatforms(260, 220, 3 * 30, stonePlatformHeiht, stoneBlock);
+        // this.addPlatforms(860, 130, 4 * 30, stonePlatformHeiht, stoneBlock);
+
+        //plataformas da entrada
+        //mais proximo do chao
+        this.addPlatforms(170, 530, 3 * 30, stonePlatformHeiht, stoneBlock);
+        //segundo degrau
+        this.addPlatforms(270, 460, 2 * 30, stonePlatformHeiht, stoneBlock);
+        //terceiro degrau        
+        this.addPlatforms(370, 410, 4 * 30, stonePlatformHeiht, stoneBlock);
+        //quarto        
+        this.addPlatforms(440, 310, 3 * 30, stonePlatformHeiht, stoneBlock);
+        //quinto        
+       // this.addPlatforms(480, 220, 2 * 30, stonePlatformHeiht, stoneBlock);
+
+
+        //direta
+        this.addPlatforms(900, 320, 4 * 30, stonePlatformHeiht, stoneBlock);
+        this.addPlatforms(670, 270, 4 * 30, stonePlatformHeiht, stoneBlock);
+        this.addPlatforms(1050, 520, 2 * 30, stonePlatformHeiht, stoneBlock);
+
+        //mage
+        this.addPlatforms(1180, 420, 4 * 30, stonePlatformHeiht, stoneBlock);
+        this.addPlatforms(50, 200, 3 * 30, stonePlatformHeiht, stoneBlock);
+
+        
+        //portal
+        this.addPlatforms(1130, 260, 6 * 30, stonePlatformHeiht, stoneBlock);
+
 
     }
 
@@ -92,23 +146,6 @@ export class Block {
 
         Block.blocksGroup.add(platform);
 
-        // if(movable)
-        // this.setRouteLoop(880, 500, 250, platform);
-        
         return platform;
     }
-
-    // public setRouteLoop(x: number, delayMetric: number, 
-    //     speed: number, sprite:Phaser.GameObjects.TileSprite) {
-    //     this._gameScene.physics.moveTo(sprite, x, 0, speed);
-    //     this._gameScene.time.addEvent({
-    //         delay: delayMetric,
-    //         callback: () => {
-    //             speed *= -1;
-    //             // let body = 
-    //             () => (sprite.body as Phaser.Physics.Arcade.Body) .setVelocityX(speed);                
-    //         },
-    //         loop: true
-    //     });
-    // }
 }

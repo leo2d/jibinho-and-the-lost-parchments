@@ -22,8 +22,8 @@ class Game extends Phaser.Game {
     this.scene.add("FirstStageEnd", FirstStageEnd);
     this.scene.add("SecondStageEnd", SecondStageEnd);
 
-    //this.scene.start("ThirdStage");
-     this.scene.start("Main");
+    this.scene.start("ThirdStage");
+     //this.scene.start("Main");
   }
 }
 

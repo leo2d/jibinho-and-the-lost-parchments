@@ -9,6 +9,7 @@ export class Loader {
         loadPlugin.image("stoneBlock", assets.stoneBlock);
         loadPlugin.image("snowGround", assets.snowGround);
         loadPlugin.image("stoneGround", assets.stoneGround);
+        loadPlugin.image("redGround", assets.redGround);
         loadPlugin.image("glogo", assets.glogo);
         loadPlugin.image("javalogo", assets.javalogo);
         loadPlugin.image("csharplogo", assets.csharplogo);

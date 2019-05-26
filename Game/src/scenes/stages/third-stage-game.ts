@@ -77,11 +77,11 @@ export default class ThirdStage extends Phaser.Scene implements IStage {
 
             this.portal.closePortal();
 
-            this.Boss2 = new FireMage(this, this.hero).create(130, 550);
+            this.Boss2 = new FireMage(this, this.hero).create(30, 150);
             this.Boss2.registerLoopSkillDie();
-            this.Boss2.sprite.flipX = true;
+            // this.Boss2.sprite.flipX = true;
 
-            this.Boss2.setHealthBarPosition((this.Boss2.sprite.x), (this.Boss2.sprite.y - 50));
+            this.Boss2.setHealthBarPosition((this.Boss2.sprite.x + 15), (this.Boss2.sprite.y - 50));
         }
     }
 
@@ -98,7 +98,7 @@ export default class ThirdStage extends Phaser.Scene implements IStage {
 
     private addStageItems(): void {
         this.portal = new Portal(this, this.hero, 'SecondStage', 'SecondStageEnd')
-            .create(590, 160, 'portalClosed')
+            .create(1180, 230, 'portalClosed')
             .withBlockColisor();
     }
 
@@ -123,10 +123,11 @@ export default class ThirdStage extends Phaser.Scene implements IStage {
             // new CSharp(this, this.hero).create(1030, 550).withRouteLoop(1000, 280),
         ];
 
-        const mage = new FireMage(this, this.hero).create(340, 550);
-        mage.setHealthBarPosition((mage.sprite.x), (mage.sprite.y - 50));
+        const mage = new FireMage(this, this.hero).create(1160, 370);
+        mage.setHealthBarPosition((mage.sprite.x + 15), (mage.sprite.y - 50));
 
         mage.dropItem = false;
+        mage.sprite.flipX = true;
         mage.registerLoopSkill();
 
         this.Boss = mage;
@@ -155,10 +156,10 @@ export default class ThirdStage extends Phaser.Scene implements IStage {
         const groundQuantity = Math.round(config.width / groundSpriteWidth);
 
         for (let i = 0; i <= groundQuantity; i++) {
-            gameBlocks.addStoneGround(i * groundSpriteWidth, 620);
+            gameBlocks.addRedGround(i * groundSpriteWidth, 620);
         }
 
-        gameBlocks.addStonePlatforms();
+        gameBlocks.addRedPlatforms();
     }
 
     private addStageHud(): void {

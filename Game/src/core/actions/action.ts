@@ -32,6 +32,8 @@ export class GoogleFireAction extends Action {
             // Obtenção da posição atual do usuário
             this.heroPosition = this.hero.body.position;
 
+            GoogleFireAction.destroyGroup();
+
             // Construção do projétil google
             const googleBullet = this.gameScene.add.sprite(
                 this.heroPosition.x, this.heroPosition.y, 'glogo');
