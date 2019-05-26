@@ -8,6 +8,7 @@ import Parchment from '../items/parchment';
 export default class Mage<T> extends Enemy<Mage<T>>
 {
 
+    public dropItem: boolean = true;
     public health: number;
     public mageHealthBar: Phaser.GameObjects.TileSprite;
     public animations: Phaser.GameObjects.Components.Animation;
@@ -99,9 +100,10 @@ export default class Mage<T> extends Enemy<Mage<T>>
 
         this.loopEvent.destroy();
 
-        new Parchment(this.gameScene, this.hero)
-            .create(this.sprite.x, this.sprite.y, 'stage1Parchment')
-            .withBlockColisor();
-
+        if (this.dropItem) {
+            new Parchment(this.gameScene, this.hero)
+                .create(this.sprite.x, this.sprite.y, 'stage1Parchment')
+                .withBlockColisor();
+        }
     }
 }

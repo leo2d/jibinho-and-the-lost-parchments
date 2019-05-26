@@ -1,27 +1,25 @@
-import { GoogleFireAction } from '../core/actions/action';
-import { Animation } from '../core/animation';
-import { Hero } from '../core/hero';
-import { Block } from '../core/block';
-import { Loader } from '../core/loader';
 import { AUTO, GameObjects, Input } from "phaser";
-import config from "../config";
-import { LeftMove } from '../core/moves/left-move';
-import { RightMove } from '../core/moves/right-move';
-import { JumpMove } from '../core/moves/jump-move';
-import { Action } from '../core/actions/action';
-import { Java } from '../core/enemies/java';
-import { SnowMage } from '../core/enemies/snow-mage';
-import { Bug } from 'src/core/enemies/bug';
-import { Enemy } from 'src/core/engine/enemy';
-import { HealthBarStatus } from './../core/enemies/HealthBarStatus';
-import Portal from './../core/items/portal';
-import IStage from './IStage';
+import { Hero } from "../../core/hero";
+import { Loader } from "../../core/loader";
+import Portal from "../../core/items/portal";
+import { LeftMove } from "../../core/moves/left-move";
+import { RightMove } from "../../core/moves/right-move";
+import { JumpMove } from "../../core/moves/jump-move";
+import { Java } from "../../core/enemies/java";
+import { SnowMage } from "../../core/enemies/snow-mage";
+import { HealthBarStatus } from "../../core/enemies/HealthBarStatus";
+import { Block } from "../../core/block";
+import { GoogleFireAction } from "../../core/actions/action";
+import config from "../../config";
+import IStage from "../IStage";
+import { CSharp } from './../../core/enemies/csharp';
+import { FireMage } from "../../core/enemies/fire-mage";
 
-
-export default class GameScene extends Phaser.Scene implements IStage {
+export default class ThirdStage extends Phaser.Scene implements IStage {
 
     public hero: Hero;
-    public Boss: SnowMage;
+    public Boss: FireMage;
+    public Boss2: FireMage = null;
     public animation: Animation;
     public hearts: Phaser.GameObjects.TileSprite[];
     public portal: Portal;
@@ -33,7 +31,7 @@ export default class GameScene extends Phaser.Scene implements IStage {
     }
 
     getStageName(): string {
-        return 'Game';
+        return 'ThirdStage';
     }
 
     public init() {
@@ -71,7 +69,20 @@ export default class GameScene extends Phaser.Scene implements IStage {
     }
 
     public update() {
+        this.manageBosses();
+    }
 
+    private manageBosses(): void {
+        if (this.Boss.health < 1 && null === this.Boss2) {
+
+            this.portal.closePortal();
+
+            this.Boss2 = new FireMage(this, this.hero).create(130, 550);
+            this.Boss2.registerLoopSkillDie();
+            this.Boss2.sprite.flipX = true;
+
+            this.Boss2.setHealthBarPosition((this.Boss2.sprite.x), (this.Boss2.sprite.y - 50));
+        }
     }
 
     private assignMoves(): void {
@@ -86,26 +97,37 @@ export default class GameScene extends Phaser.Scene implements IStage {
     }
 
     private addStageItems(): void {
-        this.portal = new Portal(this, this.hero, 'Game', 'FirstStageEnd')
-            .create(1130, 130, 'portalClosed')
+        this.portal = new Portal(this, this.hero, 'SecondStage', 'SecondStageEnd')
+            .create(590, 160, 'portalClosed')
             .withBlockColisor();
     }
 
 
     private addStageEnemies(): void {
 
-        const javas = [new Java(this, this.hero).create(754, 420).withRouteLoop(900, 500),
-        new Java(this, this.hero).create(1102, 420).withRouteLoop(1300, 350),
-        new Java(this, this.hero).create(390, 390).withRouteLoop(530, 250),
-        new Java(this, this.hero).create(580, 295).withRouteLoop(890, 1080, 80),
-        new Java(this, this.hero).create(440, 140).withRouteLoop(890, 1080, 80),
-        new Java(this, this.hero).create(1066, 120).withRouteLoop(1470, 1080, 80),
+        const cSharps = [
+
+            // //plataforma mais alta
+            // new CSharp(this, this.hero).create(260, 150).withRouteLoop(530, 200),
+
+            // //plataformas terceiro nivel
+            // new CSharp(this, this.hero).create(830, 275).withRouteLoop(890, 350, 40),
+
+            // //plataformas segundo nivel
+            // new CSharp(this, this.hero).create(710, 350).withRouteLoop(890, 900, 60),
+            // new CSharp(this, this.hero).create(250, 330).withRouteLoop(1470, 1080, 120),
+
+            // //chao
+            // new CSharp(this, this.hero).create(360, 550).withRouteLoop(1300, 350),
+            // new CSharp(this, this.hero).create(580, 550).withRouteLoop(900, 500),
+            // new CSharp(this, this.hero).create(1030, 550).withRouteLoop(1000, 280),
         ];
 
-        const mage = new SnowMage(this, this.hero).create(180, 110);
+        const mage = new FireMage(this, this.hero).create(340, 550);
+        mage.setHealthBarPosition((mage.sprite.x), (mage.sprite.y - 50));
 
-        // const mage = new SnowMage(this, this.hero).create(200, 520);
-        // this.mageHealthBar = this.add.tileSprite(mage.sprite.x, (mage.sprite.y -20), 57, 20, 'enemyHealthBarFine');
+        mage.dropItem = false;
+        mage.registerLoopSkill();
 
         this.Boss = mage;
     }
@@ -123,7 +145,7 @@ export default class GameScene extends Phaser.Scene implements IStage {
     }
 
     private addStageSprites(): void {
-        this.add.tileSprite(600, 100, 1920, 1080, 'stage1Bg');
+        this.add.tileSprite(600, 100, 1920, 1080, 'stage2Bg');
     }
 
     private addStageBlocks(): void {
@@ -133,10 +155,10 @@ export default class GameScene extends Phaser.Scene implements IStage {
         const groundQuantity = Math.round(config.width / groundSpriteWidth);
 
         for (let i = 0; i <= groundQuantity; i++) {
-            gameBlocks.addGround(i * groundSpriteWidth, 620);
+            gameBlocks.addStoneGround(i * groundSpriteWidth, 620);
         }
 
-        gameBlocks.addSnowPlatforms();
+        gameBlocks.addStonePlatforms();
     }
 
     private addStageHud(): void {

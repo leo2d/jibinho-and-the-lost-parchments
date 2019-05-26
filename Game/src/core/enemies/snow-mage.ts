@@ -1,12 +1,6 @@
-import { Block } from './../block';
-import { Enemy } from "../engine/enemy";
+
 import { Hero } from "../hero";
 import { Bug } from "./bug";
-import config from "../../config";
-import { GoogleFireAction } from '../actions/action';
-import GameScene from 'src/scenes/game';
-import { HealthBarStatus } from './HealthBarStatus';
-import Parchment from '../items/parchment';
 import Mage from './mage';
 
 export class SnowMage extends Mage<SnowMage> {

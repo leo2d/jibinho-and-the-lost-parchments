@@ -1,6 +1,5 @@
 import { Item } from "../engine/item";
 import { Hero } from "../hero";
-import GameScene from "src/scenes/game";
 
 export default class Portal extends Item<Portal>{
     
@@ -39,5 +38,9 @@ export default class Portal extends Item<Portal>{
     public openPortal(){
         this.isOpen = true;
         this.sprite.setTexture('portalOpen');
+    }
+    public closePortal(){
+        this.isOpen = false;
+        this.sprite.setTexture('portalClosed');
     }
 }

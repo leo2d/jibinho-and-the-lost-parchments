@@ -1,5 +1,4 @@
 import { Hero } from "../hero";
-import GameScene from "src/scenes/game";
 import { Item } from "../engine/item";
 import IStage from "src/scenes/IStage";
 

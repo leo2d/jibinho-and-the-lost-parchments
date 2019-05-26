@@ -1,7 +1,5 @@
 import { AUTO } from "phaser";
 import config from "../config";
-import { get } from "https";
-import GameScene from "src/scenes/game";
 import IStage from "src/scenes/IStage";
 
 export class Hero {

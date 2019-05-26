@@ -14,6 +14,7 @@ export class Loader {
         loadPlugin.image("csharplogo", assets.csharplogo);
         loadPlugin.image("snowmage", assets.snowmage);
         loadPlugin.image("thundermage", assets.thundermage);
+        loadPlugin.image("firemage", assets.firemage);
         loadPlugin.image("bug", assets.bug);
         loadPlugin.image("stage2Bg", assets.stage2Bg);
         loadPlugin.image("stage1Bg", assets.stage1Bg);

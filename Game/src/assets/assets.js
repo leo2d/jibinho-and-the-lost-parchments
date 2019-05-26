@@ -11,6 +11,7 @@ import javalogo from "./images/enemies/enemy_java.png";
 import csharplogo from "./images/enemies/csharp_logo.png";
 import snowmage from "./images/enemies/snow_mage.png";
 import thundermage from "./images/enemies/thunder_mage.png";
+import firemage from "./images/enemies/fire_mage.png";
 import bug from "./images/enemies/bug.png";
 import stage1Bg from "./images/backgrounds/stage1_bg.jpg";
 import stage2Bg from "./images/backgrounds/stage2_bg.png";
@@ -63,6 +64,7 @@ export default {
     stoneGround:stoneGround,
     stage2Bg: stage2Bg,
     secondStageEnd: secondStageEnd,
+    firemage: firemage,
 
 };
 
