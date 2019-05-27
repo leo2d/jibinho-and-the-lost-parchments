@@ -7,16 +7,20 @@ export class Loader {
 
         loadPlugin.image("iceBlock", assets.iceBlock);
         loadPlugin.image("stoneBlock", assets.stoneBlock);
+        loadPlugin.image("redBlock", assets.redBlock);
         loadPlugin.image("snowGround", assets.snowGround);
         loadPlugin.image("stoneGround", assets.stoneGround);
         loadPlugin.image("redGround", assets.redGround);
         loadPlugin.image("glogo", assets.glogo);
         loadPlugin.image("javalogo", assets.javalogo);
         loadPlugin.image("csharplogo", assets.csharplogo);
+        loadPlugin.image("hitfilmlogo", assets.hitfilmlogo);
+        loadPlugin.image("jslogo", assets.jslogo);
         loadPlugin.image("snowmage", assets.snowmage);
         loadPlugin.image("thundermage", assets.thundermage);
         loadPlugin.image("firemage", assets.firemage);
         loadPlugin.image("bug", assets.bug);
+        loadPlugin.image("stage3Bg", assets.stage3Bg);
         loadPlugin.image("stage2Bg", assets.stage2Bg);
         loadPlugin.image("stage1Bg", assets.stage1Bg);
         loadPlugin.image("firstStageEnd", assets.firstStageEnd);

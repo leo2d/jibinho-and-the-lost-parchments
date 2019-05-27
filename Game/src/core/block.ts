@@ -96,41 +96,38 @@ export class Block {
     }
 
     public addRedPlatforms() {
-        const stoneBlock = 'stoneBlock';
+        const stoneBlock = 'redBlock';
         const stonePlatformHeiht = 30;
+        const blockWidth = 32;
 
-        this.addPlatforms(790, 420, 4 * 30, stonePlatformHeiht, stoneBlock);
-        this.addPlatforms(640, 510, 3 * 30, stonePlatformHeiht, stoneBlock);
+        this.addPlatforms(790, 420, 4 * blockWidth, stonePlatformHeiht, stoneBlock);
+        this.addPlatforms(640, 510, 3 * blockWidth, stonePlatformHeiht, stoneBlock);
 
 
-        this.addPlatforms(260, 220, 3 * 30, stonePlatformHeiht, stoneBlock);
-        // this.addPlatforms(860, 130, 4 * 30, stonePlatformHeiht, stoneBlock);
+        this.addPlatforms(260, 220, 3 * blockWidth, stonePlatformHeiht, stoneBlock);
 
         //plataformas da entrada
         //mais proximo do chao
-        this.addPlatforms(170, 530, 3 * 30, stonePlatformHeiht, stoneBlock);
+        this.addPlatforms(170, 530, 3 * blockWidth, stonePlatformHeiht, stoneBlock);
         //segundo degrau
-        this.addPlatforms(270, 460, 2 * 30, stonePlatformHeiht, stoneBlock);
+        this.addPlatforms(270, 460, 2 * blockWidth, stonePlatformHeiht, stoneBlock);
         //terceiro degrau        
-        this.addPlatforms(370, 410, 4 * 30, stonePlatformHeiht, stoneBlock);
+        this.addPlatforms(370, 410, 4 * blockWidth, stonePlatformHeiht, stoneBlock);
         //quarto        
-        this.addPlatforms(440, 310, 3 * 30, stonePlatformHeiht, stoneBlock);
-        //quinto        
-       // this.addPlatforms(480, 220, 2 * 30, stonePlatformHeiht, stoneBlock);
-
+        this.addPlatforms(440, 310, 3 * blockWidth, stonePlatformHeiht, stoneBlock);
 
         //direta
-        this.addPlatforms(900, 320, 4 * 30, stonePlatformHeiht, stoneBlock);
-        this.addPlatforms(670, 270, 4 * 30, stonePlatformHeiht, stoneBlock);
-        this.addPlatforms(1050, 520, 2 * 30, stonePlatformHeiht, stoneBlock);
+        this.addPlatforms(900, 320, 4 * blockWidth, stonePlatformHeiht, stoneBlock);
+        this.addPlatforms(670, 270, 4 * blockWidth, stonePlatformHeiht, stoneBlock);
+        this.addPlatforms(1050, 520, 2 * blockWidth, stonePlatformHeiht, stoneBlock);
 
         //mage
-        this.addPlatforms(1180, 420, 4 * 30, stonePlatformHeiht, stoneBlock);
-        this.addPlatforms(50, 200, 3 * 30, stonePlatformHeiht, stoneBlock);
+        this.addPlatforms(1180, 420, 4 * blockWidth, stonePlatformHeiht, stoneBlock);
+        this.addPlatforms(50, 200, 3 * blockWidth, stonePlatformHeiht, stoneBlock);
 
-        
+
         //portal
-        this.addPlatforms(1130, 260, 6 * 30, stonePlatformHeiht, stoneBlock);
+        this.addPlatforms(1130, 260, 6 * blockWidth, stonePlatformHeiht, stoneBlock);
 
 
     }

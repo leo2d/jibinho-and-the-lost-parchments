@@ -1,5 +1,6 @@
 import iceBlock from "./images/textures/ice_block.png";
 import stoneBlock from "./images/textures/stoneBlock.png";
+import redBlock from "./images/textures/red_block.png";
 import snowGround from "./images/textures/snow_ground.png";
 import stoneGround from "./images/textures/stone-ground.png";
 import redGround from "./images/textures/red_ground.png";
@@ -10,12 +11,15 @@ import portalOpen from "./images/commom/portal-open.png";
 import heart from "./images/commom/heart32.png";
 import javalogo from "./images/enemies/enemy_java.png";
 import csharplogo from "./images/enemies/csharp_logo.png";
+import hitfilmlogo from "./images/enemies/hitfilm_logo.png";
+import jslogo from "./images/enemies/javascript_logo.png";
 import snowmage from "./images/enemies/snow_mage.png";
 import thundermage from "./images/enemies/thunder_mage.png";
 import firemage from "./images/enemies/fire_mage.png";
 import bug from "./images/enemies/bug.png";
 import stage1Bg from "./images/backgrounds/stage1_bg.jpg";
 import stage2Bg from "./images/backgrounds/stage2_bg.png";
+import stage3Bg from "./images/backgrounds/stage3_bg.png";
 import gameOver from "./images/scenes/game-over.png";
 import main from "./images/scenes/main.png";
 import firstStageEnd from "./images/scenes/first-stage-end.png";
@@ -69,6 +73,10 @@ export default {
     //stage3
     firemage: firemage,
     redGround: redGround,
+    hitfilmlogo: hitfilmlogo,
+    jslogo: jslogo,
+    stage3Bg: stage3Bg,
+    redBlock:redBlock,
 
 };
 

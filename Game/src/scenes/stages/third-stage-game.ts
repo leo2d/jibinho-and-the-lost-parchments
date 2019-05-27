@@ -5,14 +5,12 @@ import Portal from "../../core/items/portal";
 import { LeftMove } from "../../core/moves/left-move";
 import { RightMove } from "../../core/moves/right-move";
 import { JumpMove } from "../../core/moves/jump-move";
-import { Java } from "../../core/enemies/java";
-import { SnowMage } from "../../core/enemies/snow-mage";
-import { HealthBarStatus } from "../../core/enemies/HealthBarStatus";
 import { Block } from "../../core/block";
 import { GoogleFireAction } from "../../core/actions/action";
 import config from "../../config";
 import IStage from "../IStage";
-import { CSharp } from './../../core/enemies/csharp';
+import { Hitfilm } from './../../core/enemies/hitfilm';
+import { Javascript } from '../../core/enemies/javascript';
 import { FireMage } from "../../core/enemies/fire-mage";
 
 export default class ThirdStage extends Phaser.Scene implements IStage {
@@ -77,11 +75,12 @@ export default class ThirdStage extends Phaser.Scene implements IStage {
 
             this.portal.closePortal();
 
-            this.Boss2 = new FireMage(this, this.hero).create(30, 150);
-            this.Boss2.registerLoopSkillDie();
-            // this.Boss2.sprite.flipX = true;
+            const mage  = new FireMage(this.Boss.gameScene, this.Boss.hero).create(30, 150);
+            mage.setHealthBarPosition((mage.sprite.x + 15), (mage.sprite.y - 50));
 
-            this.Boss2.setHealthBarPosition((this.Boss2.sprite.x + 15), (this.Boss2.sprite.y - 50));
+            mage.registerLoopSkillDie();
+
+            this.Boss2 = mage;
         }
     }
 
@@ -105,22 +104,25 @@ export default class ThirdStage extends Phaser.Scene implements IStage {
 
     private addStageEnemies(): void {
 
-        const cSharps = [
+        const javascripts = [
 
-            // //plataforma mais alta
-            // new CSharp(this, this.hero).create(260, 150).withRouteLoop(530, 200),
+            //canto esquerdo
+            new Javascript(this, this.hero).create(260, 150).withRouteLoop(530, 200),
 
-            // //plataformas terceiro nivel
-            // new CSharp(this, this.hero).create(830, 275).withRouteLoop(890, 350, 40),
+            //direita, proximo ao protal
+            new Javascript(this, this.hero).create(930, 275).withRouteLoop(1000, 280),
 
-            // //plataformas segundo nivel
-            // new CSharp(this, this.hero).create(710, 350).withRouteLoop(890, 900, 60),
-            // new CSharp(this, this.hero).create(250, 330).withRouteLoop(1470, 1080, 120),
+            //portal
+            new Javascript(this, this.hero).create(1150, 200).withRouteLoop(1470, 1080, 120),
 
-            // //chao
-            // new CSharp(this, this.hero).create(360, 550).withRouteLoop(1300, 350),
-            // new CSharp(this, this.hero).create(580, 550).withRouteLoop(900, 500),
-            // new CSharp(this, this.hero).create(1030, 550).withRouteLoop(1000, 280),
+            //chao
+            new Javascript(this, this.hero).create(680, 550).withRouteLoop(900, 500),
+
+            //terceiro degrau
+            new Javascript(this, this.hero).create(350, 360).withRouteLoop(890, 350, 40),
+
+            //plataforma central
+            new Javascript(this, this.hero).create(666, 215).withRouteLoop(890, 900, 60),
         ];
 
         const mage = new FireMage(this, this.hero).create(1160, 370);
@@ -145,8 +147,8 @@ export default class ThirdStage extends Phaser.Scene implements IStage {
         new GoogleFireAction(this.hero, this, this.cursorKeys).actionAssign();
     }
 
-    private addStageSprites(): void {
-        this.add.tileSprite(600, 100, 1920, 1080, 'stage2Bg');
+    private addStageSprites(): void  {
+        this.add.tileSprite(600, 150, 1920, 1080, 'stage3Bg');
     }
 
     private addStageBlocks(): void {
