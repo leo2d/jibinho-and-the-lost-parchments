@@ -7,8 +7,8 @@ import { Hitfilm } from './hitfilm';
 export class FireMage extends Mage<FireMage> {
 
     constructor(
-       public gameScene: Phaser.Scene,
-       public  hero: Hero) {
+        public gameScene: Phaser.Scene,
+        public hero: Hero) {
         super(gameScene, hero);
 
     }
@@ -21,16 +21,16 @@ export class FireMage extends Mage<FireMage> {
         return this;
     }
 
-    public registerLoopSkill(): void {
+    public registerLoopSkillDie(): void {
         this.loopEvent = this.gameScene.time.addEvent({
-            delay: 6000,
+            delay: 5000,
             callback: () => {
 
                 const x = Math.floor(Math.random() * 1130); //1130 final da tela
                 const y = Math.floor(Math.random() * 550); // 550 chao
 
                 const newEnemy = new Hitfilm(this.gameScene, this.hero)
-                    .create(x, y)
+                    .create((x > 140 ? x : x + 130), y)
                     .withRouteLoop(y - 140, x + 130, y - 100);
 
                 // console.log(x, y);
@@ -39,9 +39,9 @@ export class FireMage extends Mage<FireMage> {
         });
     }
 
-    public registerLoopSkillDie(): void {
+    public registerLoopSkill(): void {
         this.loopEvent = this.gameScene.time.addEvent({
-            delay: 1500,
+            delay: 3000,
             callback: () => {
                 const position = this.body.position;
 
@@ -55,7 +55,7 @@ export class FireMage extends Mage<FireMage> {
                     .setCollideWorldBounds(true)
                     .setMass(10);
 
-                this.gameScene.physics.moveToObject(bug.sprite, this.hero.sprite, 280)
+                this.gameScene.physics.moveToObject(bug.sprite, this.hero.sprite, 200);//280)
             },
             loop: true
         });
