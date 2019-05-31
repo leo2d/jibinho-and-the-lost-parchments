@@ -36,6 +36,9 @@ export class Loader {
         loadPlugin.image("enemyHealthBarWaring", assets.enemyHealthBarWaring);
         loadPlugin.image("enemyHealthBarFine", assets.enemyHealthBarFine);
         loadPlugin.image("stage1Parchment", assets.stage1Parchment);
+        loadPlugin.image("endgame", assets.endgame);
+        loadPlugin.image("credits", assets.credits);
+        loadPlugin.image("intro", assets.intro);
 
         loadPlugin.atlas('player-walking', 'src/assets/images/hero/walk.png', 'src/assets/json/walk.json');
 

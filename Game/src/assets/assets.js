@@ -30,6 +30,9 @@ import enemyHealthBarCaution from "./images/health_bar/enemyHealthBar-caution.pn
 import enemyHealthBarWaring from "./images/health_bar/enemyHealthBar-waring.png";
 import enemyHealthBarFine from "./images/health_bar/enemyHealthBar-fine.png";
 import stage1Parchment from "./images/parchments/scroll_metal_64.png";
+import endgame from "./images/scenes/end-game.png";
+import credits from "./images/scenes/credits.png";
+import intro from "./images/scenes/intro.png";
 
 export default {
     //scenes
@@ -42,6 +45,9 @@ export default {
     heart: heart,
     portalClosed: portalClosed,
     portalOpen: portalOpen,
+    intro:intro,
+    credits:credits,
+
 
     //mage healthbar
     enemyHealthBarDanger: enemyHealthBarDanger,
@@ -77,6 +83,8 @@ export default {
     jslogo: jslogo,
     stage3Bg: stage3Bg,
     redBlock:redBlock,
+    endgame:endgame,
+
 
 };
 

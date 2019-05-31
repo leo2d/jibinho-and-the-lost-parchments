@@ -96,7 +96,7 @@ export default class ThirdStage extends Phaser.Scene implements IStage {
     }
 
     private addStageItems(): void {
-        this.portal = new Portal(this, this.hero, 'SecondStage', 'SecondStageEnd')
+            this.portal = new Portal(this, this.hero, this.getStageName(), 'EndGame')
             .create(1180, 230, 'portalClosed')
             .withBlockColisor();
     }

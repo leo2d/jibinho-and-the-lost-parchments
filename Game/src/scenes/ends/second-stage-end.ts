@@ -22,7 +22,7 @@ export default class SecondStageEndScene extends Phaser.Scene {
         this.cursorKeys = this.input.keyboard.createCursorKeys();
 
         this.cursorKeys.space.on('down', () => {
-            window.location.reload();
+            this.scene.switch("ThirdStage");
         });
     }
 }

@@ -8,6 +8,9 @@ import SecondStage from './scenes/stages/second-stage-game';
 import ThirdStage from './scenes/stages/third-stage-game';
 import FirstStageEnd from './scenes/ends/first-stage-end';
 import SecondStageEnd from './scenes/ends/second-stage-end';
+import EndGame from './scenes/ends/end-game';
+import CreditsScene from './scenes/credits';
+import IntroScene from './scenes/intro';
 
 class Game extends Phaser.Game {
   constructor() {
@@ -21,9 +24,12 @@ class Game extends Phaser.Game {
     this.scene.add("ThirdStage", ThirdStage);
     this.scene.add("FirstStageEnd", FirstStageEnd);
     this.scene.add("SecondStageEnd", SecondStageEnd);
+    this.scene.add("CreditsScene", CreditsScene);
+    this.scene.add("EndGame", EndGame);
+    this.scene.add("Intro", IntroScene);
 
-    this.scene.start("ThirdStage");
-     //this.scene.start("Main");
+    // this.scene.start("ThirdStage");
+     this.scene.start("Main");
   }
 }
 

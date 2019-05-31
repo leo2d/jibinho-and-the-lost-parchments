@@ -1,13 +1,14 @@
-import { Input } from 'phaser';
-import { Loader } from '../../core/loader';
+import { Loader } from '../core/loader';
+import { AUTO, Input } from 'phaser';
 
 
-export default class SecondStageEndScene extends Phaser.Scene {
+export default class IntroScene extends Phaser.Scene {
+
+    public cursorKeys: Input.Keyboard.CursorKeys;
+
     public constructor(key) {
         super(key);
     }
-
-    public cursorKeys: Input.Keyboard.CursorKeys;
 
     public init() {
 
@@ -16,13 +17,15 @@ export default class SecondStageEndScene extends Phaser.Scene {
     public preload() {
         new Loader(this.load);
     }
+
     public create() {
-        this.add.tileSprite(625, 320, 1250, 640, 'thirdStageEnd');
+        this.add.tileSprite(625, 320, 1250, 640, 'intro');
 
         this.cursorKeys = this.input.keyboard.createCursorKeys();
 
         this.cursorKeys.space.on('down', () => {
-            window.location.reload();
+            this.scene.start("Tutorial");
         });
+
     }
 }
